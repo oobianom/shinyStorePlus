@@ -1,0 +1,139 @@
+---
+title: "shinyStorePlus: An in-browser secure storage for persistent and synchronized data from the Shiny inputs using IndexedDB"
+author: "Obinna N. Obianom"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{shinyStorePlus: An in-browser secure storage for persistent and synchronized data from the Shiny inputs using IndexedDB}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Introduction
+
+There has been tremendous contribution from the R community on the topic of storing Shiny data and re-using them within an application. The current solutions include Dropbox, Amazon s3, Googlesheets, SQLite, MongoDB and so on. However, a problem with these methods is that it takes a number of steps in order to correctly program your Shiny application for them. More so, the owner of the accounts may need to consistently monitor the storage accounts to ensure that it is not expire or that the data storage is not exhausted. 
+
+__So let's face it. When you build a shiny app that allows a user to change inputs and see the results immediately, guess what the user is itching to have?? The ability to change the inputs and when they refresh or reopen the shiny app at a later time, still see the inputs they previously entered. Well, <code>shinyStorePlus R package</code> gives that!__
+
+A somewhat easier but least secure solution that has been previously proposed was with the work of an R package called shinyStore, which leveraged <code>localStorage</code> in-browser using Javascript to store data. While this works, it also meant that the application information may be deleted or overwritten manually from the browser or by another user. It was also unsustainable for large amount of data.And the package required a lot of manually programming for all the inputs.
+
+
+__This introduces the advantages that the shinyStorePlus, implemented using Dexie.js, offers!__
+
+ - Write very minimal code to setup stores of inputs
+ 
+ - Automatic storage of all inputs within an application in such a way that it does not slow down the performance of the application
+ 
+ - Large data stores are available and exists within the browser over as many sessions as possible
+ 
+ - Medium security as other applications cannot alter information of a particular application
+ 
+ - The data cannot be manually edited from the browser
+ 
+ - Easy to learn and implement within an existing application
+ 
+
+
+## Installation and Library Attachment
+
+The shinyStorePlus package is available on CRAN and can be installed as shown below
+
+`install.packages(shinyStorePlus)`
+
+Attach library 
+
+`library(shinyStorePlus)`
+
+## Use
+
+The shinyStorePlus examples can be accessed as shown below
+
+
+```{r eval=FALSE,echo=TRUE}
+
+# library
+library(shinyStorePlus)
+
+# seeexample()
+
+```
+
+
+
+
+## Example code to get started
+
+
+### Input
+
+```{r eval=FALSE,echo=TRUE}
+
+# library
+library(shiny)
+library(shinyStorePlus)
+
+if(interactive()) {
+ui <- fluidPage(
+  titlePanel("Sample
+             shinyStorePlus Track Inputs"),
+  
+  #initialize stores
+  initStore(),
+  
+  sidebarLayout(
+    sidebarPanel(
+      sliderInput("nextgenshinyapps1",
+                  "Number of bins:",
+                  min = 1,
+                  max = 200,
+                  value = 150),
+      textInput("caption",
+                "simple caption:",
+                "summary, try editing"),
+      numericInput("obs",
+                   "sample observations:",
+                   10, min = 1, max = 100)
+    ),
+    mainPanel(
+      plotOutput("distPlot")
+    )
+  )
+)
+
+server <- function(input, output, session) {
+  
+  output$distPlot <- renderPlot({
+    # generate bins based on input$bins from ui.R
+    x <- faithful[, 2]
+    bins <- seq(min(x), max(x), length.out = input$nextgenshinyapps1 + 1)
+    
+    # draw the histogram with the specified number of bins
+    hist(x, breaks = bins, col = "darkgray", border = "white")
+  })
+  
+  
+  
+  #stores setup - insert at the bottom  !!!IMPORTANT
+  appid = "application31"
+  setupStorage(appId = appid,inputs = TRUE)
+  
+  
+}
+
+shinyApp(ui = ui, server = server)
+}
+
+```
+
+
+  
+## Examples and Demo Pages
+
+View examples and demo pages at https://shinystoreplus.obi.obianom.com/
+View other packages created by me at https://coursewhiz.org

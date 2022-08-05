@@ -1,0 +1,315 @@
+---
+title: "Integrating the shinyStorePlus R package into Shiny applications"
+author: "Obinna N. Obianom"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Integrating the shinyStorePlus R package into Shiny applications}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Introduction
+
+Integrating the shinyStorePlus package into your already developed application is very simple and can be accomplished in just few lines of code. Neat, right?
+
+Well, get started ...
+
+<style>body{max-width:unset!important;}pre.sourceCode{background-color:#d8d800!important;}code.sourceCode{background-color:#d8d800!important;color:fff!important;}</style>
+
+## Step 1: An already working application
+
+Below is the code for an application to which we will integrate the shinyStorePlus package
+
+```{r eval=FALSE,echo=TRUE}
+
+# library
+library(shiny)
+
+if(interactive()) {
+ui <- fluidPage(
+    # Application title
+    titlePanel("shinyStorePlus by Obi Obianom"),
+
+    # Sidebar with a slider input for number of bins
+    sidebarLayout(
+        sidebarPanel(
+            sliderInput("bins",
+                        "Number of bins:",
+                        min = 1,
+                        max = 50,
+                        value = 30),
+            selectizeInput(
+              'foo', label = NULL, choices = state.name,
+              options = list(create = TRUE),
+              multiple = TRUE
+            ),
+           textInput("redd","What if I?",value = "Wayword...")
+        ),
+
+        # Show a plot of the generated distribution
+        mainPanel(
+            plotOutput("distPlot")
+        )
+    )
+)
+
+server <- function(input,output,session) {
+  # make sure the  input, output, session arguments are present !IMPORTANT
+
+    output$distPlot <- renderPlot({
+
+        # generate bins based on input$bins from ui.R
+        x    <- faithful[, 2]
+        bins <- seq(min(x), max(x), length.out = input$bins + 1)
+
+        # draw the histogram with the specified number of bins
+        hist(x, breaks = bins, col = 'darkgray', border = 'white',
+             xlab = 'Waiting time to next eruption (in mins)',
+             main = 'Histogram of waiting times')
+
+    })
+}
+
+shinyApp(ui = ui, server = server)
+}
+
+```
+
+
+## Step 2: Install and attach the <code>shinyStorePlus</code> R package
+
+The shinyStorePlus package is available on CRAN and can be installed as shown below
+
+`install.packages(shinyStorePlus)`
+
+Attach library 
+
+`library(shinyStorePlus)`
+
+Now, the code you have should look like this ...
+
+
+```{r eval=FALSE,echo=TRUE}
+
+# library
+library(shiny)
+library(shinyStorePlus)
+
+if(interactive()) {
+ui <- fluidPage(
+    # Application title
+    titlePanel("shinyStorePlus by Obi Obianom"),
+
+    # Sidebar with a slider input for number of bins
+    sidebarLayout(
+        sidebarPanel(
+            sliderInput("bins",
+                        "Number of bins:",
+                        min = 1,
+                        max = 50,
+                        value = 30),
+            selectizeInput(
+              'foo', label = NULL, choices = state.name,
+              options = list(create = TRUE),
+              multiple = TRUE
+            ),
+           textInput("redd","What if I?",value = "Wayword...")
+        ),
+
+        # Show a plot of the generated distribution
+        mainPanel(
+            plotOutput("distPlot")
+        )
+    )
+)
+
+server <- function(input,output,session) {
+  # make sure the  input, output, session arguments are present !IMPORTANT
+
+    output$distPlot <- renderPlot({
+
+        # generate bins based on input$bins from ui.R
+        x    <- faithful[, 2]
+        bins <- seq(min(x), max(x), length.out = input$bins + 1)
+
+        # draw the histogram with the specified number of bins
+        hist(x, breaks = bins, col = 'darkgray', border = 'white',
+             xlab = 'Waiting time to next eruption (in mins)',
+             main = 'Histogram of waiting times')
+
+    })
+}
+
+shinyApp(ui = ui, server = server)
+}
+
+```
+
+
+## Step 2: Initialize by including the scripts required for processing the stores
+
+You must initialize for the package to work. Its as simple as inserting the function below within the <code>fluidPage()</code>
+
+`initStore()`
+
+Now, the code you have should look like this ...
+
+
+```{r eval=FALSE,echo=TRUE}
+
+# library
+library(shiny)
+library(shinyStorePlus)
+
+if (interactive()) {
+  ui <- fluidPage(
+    # Initialize shinyStorePlus
+    initStore(),
+
+    # Application title
+    titlePanel("shinyStorePlus by Obi Obianom"),
+
+    # Sidebar with a slider input for number of bins
+    sidebarLayout(
+      sidebarPanel(
+        sliderInput("bins",
+          "Number of bins:",
+          min = 1,
+          max = 50,
+          value = 30
+        ),
+        selectizeInput(
+          "foo",
+          label = NULL, choices = state.name,
+          options = list(create = TRUE),
+          multiple = TRUE
+        ),
+        textInput("redd", "What if I?", value = "Wayword...")
+      ),
+
+      # Show a plot of the generated distribution
+      mainPanel(
+        plotOutput("distPlot")
+      )
+    )
+  )
+
+  server <- function(input, output, session) {
+    # make sure the  input, output, session arguments are present !IMPORTANT
+
+    output$distPlot <- renderPlot({
+
+      # generate bins based on input$bins from ui.R
+      x <- faithful[, 2]
+      bins <- seq(min(x), max(x), length.out = input$bins + 1)
+
+      # draw the histogram with the specified number of bins
+      hist(x,
+        breaks = bins, col = "darkgray", border = "white",
+        xlab = "Waiting time to next eruption (in mins)",
+        main = "Histogram of waiting times"
+      )
+    })
+  }
+
+  shinyApp(ui = ui, server = server)
+}
+
+```
+
+
+
+## Step 3: Setup storage in the server function
+
+Setup the stores by declaring a unique app id and including this in the setup function as shown below 
+
+`appid = "applicatio32n501"`
+`setupStorage(appId = appid,inputs = TRUE)`
+
+Now, the code you have should look like this ...
+
+
+```{r eval=FALSE,echo=TRUE}
+
+# library
+library(shiny)
+library(shinyStorePlus)
+
+if (interactive()) {
+  ui <- fluidPage(
+    # Initialize shinyStorePlus
+    initStore(),
+
+    # Application title
+    titlePanel("shinyStorePlus by Obi Obianom"),
+
+    # Sidebar with a slider input for number of bins
+    sidebarLayout(
+      sidebarPanel(
+        sliderInput("bins",
+          "Number of bins:",
+          min = 1,
+          max = 50,
+          value = 30
+        ),
+        selectizeInput(
+          "foo",
+          label = NULL, choices = state.name,
+          options = list(create = TRUE),
+          multiple = TRUE
+        ),
+        textInput("redd", "What if I?", value = "Wayword...")
+      ),
+
+      # Show a plot of the generated distribution
+      mainPanel(
+        plotOutput("distPlot")
+      )
+    )
+  )
+
+  server <- function(input, output, session) {
+    # make sure the  input, output, session arguments are present !IMPORTANT
+
+    output$distPlot <- renderPlot({
+
+      # generate bins based on input$bins from ui.R
+      x <- faithful[, 2]
+      bins <- seq(min(x), max(x), length.out = input$bins + 1)
+
+      # draw the histogram with the specified number of bins
+      hist(x,
+        breaks = bins, col = "darkgray", border = "white",
+        xlab = "Waiting time to next eruption (in mins)",
+        main = "Histogram of waiting times"
+      )
+    })
+
+
+    # insert at the bottom  !!!IMPORTANT
+    appid <- "applicatio32n501"
+    setupStorage(appId = appid, inputs = TRUE)
+  }
+
+  shinyApp(ui = ui, server = server)
+}
+
+```
+
+## Step 4: Run the final code
+
+Paste the final R code into your console and run. Change several inputs when the application loads, see the effect. Now, refresh the page. You should see that your previous inputs are preserved.
+
+  
+## Official links
+
+Documentation: https://shinystoreplus.obi.obianom.com
+Code and report issues: https://github.com/oobianom/shinyStorePlus
+
