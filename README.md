@@ -1,6 +1,6 @@
 # shinyStorePlus R package
 
-__Official docs link:__ [shinystoreplus.obi.obianom.com](https://shinystoreplus.obi.obianom.com)
+__Official docs link:__ [shinystoreplus.obi.obianom.com](https://shinystoreplus.obi.obianom.com/articles/using_shinystoreplus.html)
 
 In-browser storage for Shiny persistent, synchronized data from the inputs using IndexedDB
 
