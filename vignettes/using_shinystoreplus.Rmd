@@ -17,6 +17,8 @@ knitr::opts_chunk$set(
 
 ## Introduction
 
+__Create a shiny app such that when a user refreshed the app, they can still see the input they entered.__
+
 Integrating the shinyStorePlus package into your already developed application is very simple and can be accomplished in just few lines of code. Neat, right?
 
 Well, get started ...
@@ -153,7 +155,7 @@ shinyApp(ui = ui, server = server)
 ```
 
 
-## Step 2: Initialize by including the scripts required for processing the stores
+## Step 3: Initialize by including the scripts required for processing the stores
 
 You must initialize for the package to work. Its as simple as inserting the function below within the <code>fluidPage()</code>
 
@@ -226,7 +228,7 @@ if (interactive()) {
 
 
 
-## Step 3: Setup storage in the server function
+## Step 4: Setup storage in the server function
 
 Setup the stores by declaring a unique app id and including this in the setup function as shown below 
 
@@ -303,7 +305,7 @@ if (interactive()) {
 
 ```
 
-## Step 4: Run the final code
+## Step 5: Run the final code
 
 Paste the final R code into your console and run. Change several inputs when the application loads, see the effect. Now, refresh the page. You should see that your previous inputs are preserved.
 

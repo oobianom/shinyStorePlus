@@ -9,6 +9,9 @@ clearStore(appId)
 \arguments{
 \item{appId}{the application identification}
 }
+\value{
+No return value, called for side effects
+}
 \description{
 Remove all stored inputs of an application
 }

@@ -5,6 +5,7 @@
 #' @param appId the application identification
 #'
 #' @note Ensure not to use this function when the inputs are intended to be tracked.
+#' @return No return value, called for side effects
 #'
 #' @examples
 #' if (interactive()) {
