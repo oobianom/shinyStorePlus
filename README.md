@@ -1,6 +1,6 @@
 # shinyStorePlus R package
 
-__Official docs link:__ [shinystoreplus.obi.obianom.com](https://shinystoreplus.obi.obianom.com/articles/using_shinystoreplus.html) | [View Demo App](https://r2apps.shinyapps.io/shinystoreplus)
+__Official docs link:__ [shinystoreplus.obi.obianom.com](https://shinystoreplus.obi.obianom.com/articles/using_shinystoreplus.html) | [View Demo Shiny  App](https://r2apps.shinyapps.io/shinystoreplus)
 
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/shinyStorePlus)](https://cran.r-project.org/package=shinyStorePlus) [![](https://cranlogs.r-pkg.org/badges/grand-total/shinyStorePlus)](https://cran.r-project.org/package=shinyStorePlus)
 
