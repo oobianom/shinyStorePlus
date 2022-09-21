@@ -16,7 +16,14 @@ __So let's face it. When you build a shiny app that allows a user to change inpu
 
 ### Install
 
-`install.packages(shinyStorePlus)`
+```{r}
+# From CRAN
+install.packages(shinyStorePlus)
+
+# OR from Github
+library(devtools)
+install_github("oobianom/shinyStorePlus")
+```
 
 ### Usage
 
