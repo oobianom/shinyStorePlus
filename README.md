@@ -2,7 +2,7 @@
 
 __Official docs link:__ [shinystoreplus.obi.obianom.com](https://shinystoreplus.obi.obianom.com/articles/using_shinystoreplus.html) | [View Demo Shiny  App](https://r2apps.shinyapps.io/shinystoreplus)
 
-[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/shinyStorePlus)](https://cran.r-project.org/package=shinyStorePlus) [![](https://cranlogs.r-pkg.org/badges/grand-total/shinyStorePlus)](https://cran.r-project.org/package=shinyStorePlus)
+[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/shinyStorePlus)](https://cran.r-project.org/package=shinyStorePlus) [![](https://cranlogs.r-pkg.org/badges/grand-total/shinyStorePlus)](https://cran.r-project.org/package=shinyStorePlus) [![](https://rpkg.net/pub-age/shinyStorePlus)](https://rpkg.net/package/shinyStorePlus)
 
 In-browser storage for Shiny persistent, synchronized data from the inputs using IndexedDB 
 
@@ -16,7 +16,14 @@ __So let's face it. When you build a shiny app that allows a user to change inpu
 
 ### Install
 
-`install.packages(shinyStorePlus)`
+```{r}
+# From CRAN
+install.packages(shinyStorePlus)
+
+# OR from Github
+library(devtools)
+install_github("oobianom/shinyStorePlus")
+```
 
 ### Usage
 
