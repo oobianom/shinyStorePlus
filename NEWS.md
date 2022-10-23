@@ -2,7 +2,7 @@
 --------------------------------------------------------------------------
 ## Planned Features
 
-- [ ] Store all outputs automatically 
+- [x] Store all outputs automatically 
 - [ ] Store specific variables
 - [ ] Retrieve all stored specific variables & outputs
 - [ ] An updated example of the package in action
