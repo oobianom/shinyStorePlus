@@ -30,10 +30,6 @@
 #' @export
 #'
 
-clearStore <- function(appId) {
-  envir <- parent.frame()
-  envir$session$sendCustomMessage(
-    "clearStorage",
-    appId
-  )
+clearStore <- function(appId, session = getDefaultReactiveDomain()) {
+  session$sendCustomMessage("clearStorage", appId)
 }
