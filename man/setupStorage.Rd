@@ -42,7 +42,7 @@ if (interactive()) {
         textInput(
           "caption",
           "simple caption:",
-          "summary, try editing"
+          "try editing - r2resize pkg"
         ),
         numericInput("obs",
           "sample observations:",
