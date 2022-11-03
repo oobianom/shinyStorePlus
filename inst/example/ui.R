@@ -32,6 +32,7 @@ ui <- fluidPage(
         label = "Number of observations to view:",
         value = 10
       ),
+      actionButton("clear1","Clear saved inputs"),
       textAreaInput("sure", "label textara", "nothing"),
       radioButtons("radi45o", "radioed", c("Obianom", "Obinna")),
       radioButtons("retired", "radioed", c("juice", "rock", "angelo")),

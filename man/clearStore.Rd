@@ -4,7 +4,7 @@
 \alias{clearStore}
 \title{Clear storage for an application}
 \usage{
-clearStore(appId)
+clearStore(appId, session = getDefaultReactiveDomain())
 }
 \arguments{
 \item{appId}{the application identification}

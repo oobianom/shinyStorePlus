@@ -12,7 +12,7 @@
 
 <meta name="author" content="Obinna N. Obianom" />
 
-<meta name="date" content="2022-08-04" />
+<meta name="date" content="2022-11-03" />
 
 <title>Integrating the shinyStorePlus R package into Shiny applications</title>
 
@@ -335,12 +335,14 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <h1 class="title toc-ignore">Integrating the shinyStorePlus R package
 into Shiny applications</h1>
 <h4 class="author">Obinna N. Obianom</h4>
-<h4 class="date">2022-08-04</h4>
+<h4 class="date">2022-11-03</h4>
 
 
 
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
+<p><strong>Create a shiny app such that when a user refreshed the app,
+they can still see the input they entered.</strong></p>
 <p>Integrating the shinyStorePlus package into your already developed
 application is very simple and can be accomplished in just few lines of
 code. Neat, right?</p>
@@ -465,8 +467,8 @@ as shown below</p>
 <span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span>
 <span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 </div>
-<div id="step-2-initialize-by-including-the-scripts-required-for-processing-the-stores" class="section level2">
-<h2>Step 2: Initialize by including the scripts required for processing
+<div id="step-3-initialize-by-including-the-scripts-required-for-processing-the-stores" class="section level2">
+<h2>Step 3: Initialize by including the scripts required for processing
 the stores</h2>
 <p>You must initialize for the package to work. Its as simple as
 inserting the function below within the <code>fluidPage()</code></p>
@@ -531,8 +533,8 @@ inserting the function below within the <code>fluidPage()</code></p>
 <span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span>
 <span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 </div>
-<div id="step-3-setup-storage-in-the-server-function" class="section level2">
-<h2>Step 3: Setup storage in the server function</h2>
+<div id="step-4-setup-storage-in-the-server-function" class="section level2">
+<h2>Step 4: Setup storage in the server function</h2>
 <p>Setup the stores by declaring a unique app id and including this in
 the setup function as shown below</p>
 <p><code>appid = &quot;applicatio32n501&quot;</code>
@@ -601,8 +603,8 @@ the setup function as shown below</p>
 <span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span>
 <span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 </div>
-<div id="step-4-run-the-final-code" class="section level2">
-<h2>Step 4: Run the final code</h2>
+<div id="step-5-run-the-final-code" class="section level2">
+<h2>Step 5: Run the final code</h2>
 <p>Paste the final R code into your console and run. Change several
 inputs when the application loads, see the effect. Now, refresh the
 page. You should see that your previous inputs are preserved.</p>

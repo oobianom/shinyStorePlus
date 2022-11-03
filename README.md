@@ -16,13 +16,15 @@ __So let's face it. When you develop a shiny app that allows a user to change in
 
 ### Install
 
-```{r}
+```{r shinyStorePlus}
+
 # From CRAN
 install.packages(shinyStorePlus)
 
 # OR from Github
 library(devtools)
 install_github("oobianom/shinyStorePlus")
+
 ```
 
 ### Usage
