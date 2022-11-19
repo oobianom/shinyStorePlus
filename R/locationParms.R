@@ -3,7 +3,7 @@
 #' Parse the browser link and retrieve parameters for inclusion as values in inputs
 #'
 #' @param ... List of Shiny input IDs to match with window location parameters
-#' @param inputs choose whether to track all inputs or specific input variables
+#' @param inputtype Type of inputs being included
 #'
 #' @note the entered inputs should be a list in order to be parsed
 #' @return Setting of the Shiny inputs to the values of the parameters in the browser link
@@ -12,7 +12,7 @@
 #' @export
 #'
 
-setupStorage <- function(appId, inputs = TRUE) {
+link2input <- function(...,inputtype) {
   envir <- parent.frame()
   input <- envir$input
   output <- envir$output
