@@ -9,6 +9,7 @@
 #' @return Setting of the Shiny inputs to the values of the parameters in the browser link
 #' @examples
 #'
+#' link2input(id1 = "name", id2="type")
 #' @export
 #'
 
