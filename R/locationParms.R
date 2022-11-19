@@ -26,7 +26,7 @@ link2input <- function(...,inputtype = "default") {
 
       if(input$sSP1locationParams != "{}"){
       var.list <- as.data.frame(jsonlite::fromJSON((input$sSP1locationParams)))
-      print(input$sSP1locationParams)
+      print(var.list)
       var.list <- var.list[(var.list$value != "NULL"), ]
 print(var.list)
       # if (length(var.list)) {
