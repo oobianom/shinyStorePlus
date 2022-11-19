@@ -23,8 +23,9 @@ link2input <- function(...,inputtype = "default") {
   # collect and parse data
   shiny::observe({
     if (!is.null(input$sSP1locationParams)) {
+      print(input$sSP1locationParams)
       if(input$sSP1locationParams != "{}"){
-      var.list <- as.data.frame(jsonlite::fromJSON((input$transmittedDatax0x)))
+      var.list <- as.data.frame(jsonlite::fromJSON((input$sSP1locationParams)))
       var.list <- var.list[(var.list$value != "NULL"), ]
 print(var.list)
       # if (length(var.list)) {

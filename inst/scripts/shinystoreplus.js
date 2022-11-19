@@ -165,7 +165,7 @@ $(document).on('shiny:connected', function(event) {
   const currURL = new URL(window.location.href);
     var dataJSON = {};
 currURL.searchParams.forEach(function(value, key) {
-  datav2[key] = value;
+  dataJSON[key] = value;
 });
 Shiny.setInputValue("sSP1locationParams", JSON.stringify(dataJSON));
 });
