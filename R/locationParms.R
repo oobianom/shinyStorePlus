@@ -27,7 +27,9 @@ link2input <- function(...,inputtype = "default") {
       if(input$sSP1locationParams != "{}"){
       var.list <- as.data.frame(jsonlite::fromJSON((input$sSP1locationParams)))
       print(var.list)
-      var.list <- var.list[(var.list$value != "NULL"), ]
+      var.list <-as.data.frame(t(var.list))
+      var.list$var <- row.names(var.list)
+      var.list <- var.list[(var.list$V1 != "NULL"), ]
 
       if (length(var.list)) {
         if (nrow(var.list)) {
@@ -36,32 +38,32 @@ link2input <- function(...,inputtype = "default") {
 
             if (grepl("bound-input", thisrow$type)) {
               typeofinput <- strsplit(thisrow$type, "\\.")[[1]][1]
-              selrange <- unlist(thisrow$value)
-              switch(typeofinput,
+              finalval <- unlist(thisrow$V1)
+              switch(inputtype,
                 "select" = {
-                  shiny::updateSelectInput(session, inputId = thisrow$var, selected = selrange)
+                  shiny::updateSelectInput(session, inputId = thisrow$var, selected = finalval)
                 },
                 "checkboxgroup" = {
-                  shiny::updateCheckboxGroupInput(session, inputId = thisrow$var, selected = selrange)
+                  shiny::updateCheckboxGroupInput(session, inputId = thisrow$var, selected = finalval)
                 },
                 "dateinput" = {
-                  if (length(selrange) == 1) {
-                    shiny::updateDateInput(session, inputId = thisrow$var, value = selrange)
+                  if (length(finalval) == 1) {
+                    shiny::updateDateInput(session, inputId = thisrow$var, value = finalval)
                   } else {
-                    shiny::updateDateRangeInput(session, start = selrange[1], end = selrange[2], inputId = thisrow$var)
+                    shiny::updateDateRangeInput(session, start = finalval[1], end = finalval[2], inputId = thisrow$var)
                   }
                 },
                 "dateinputrange" = {
-                  shiny::updateDateRangeInput(session, start = selrange[1], end = selrange[2], inputId = thisrow$var)
+                  shiny::updateDateRangeInput(session, start = finalval[1], end = finalval[2], inputId = thisrow$var)
                 },
                 "checkbox" = {
-                  shiny::updateCheckboxInput(session, inputId = thisrow$var, value = as.logical(thisrow$value))
+                  shiny::updateCheckboxInput(session, inputId = thisrow$var, value = as.logical(thisrow$V1))
                 },
                 "radio" = {
-                  shiny::updateRadioButtons(session, inputId = thisrow$var, selected = thisrow$value)
+                  shiny::updateRadioButtons(session, inputId = thisrow$var, selected = thisrow$V1)
                 },
                 {
-                  shiny::updateTextInput(session, inputId = thisrow$var, value = selrange)
+                  shiny::updateTextInput(session, inputId = thisrow$var, value = finalval)
                 }
               )
             }
@@ -69,7 +71,7 @@ link2input <- function(...,inputtype = "default") {
             # for outputs
             if (grepl("bound-output", thisrow$type)) {
               output[[thisrow$var]] <- shiny::renderText({
-                unlist(thisrow$value)
+                unlist(thisrow$V1)
               })
             }
           }
