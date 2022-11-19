@@ -15,12 +15,7 @@ server <- function(input, output, session) {
   #clearStore("application501")
 
   #insert at the bottom  !!!IMPORTANT
-  appid = "application501"
-  setupStorage(appId = appid,inputs = TRUE)
-
-  observeEvent(input$clear1,{
-  clearStore(appId = appid)
-  })
+  link2input(dataset="name")
 
 }
 
