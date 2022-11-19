@@ -12,7 +12,7 @@
 #' @export
 #'
 
-link2input <- function(...,inputtype) {
+link2input <- function(...,inputtype = "default") {
   envir <- parent.frame()
   input <- envir$input
   output <- envir$output
@@ -31,10 +31,11 @@ link2input <- function(...,inputtype) {
   # retrieve any previously stored
   # collect previous data
   shiny::observe({
+    print("yess its not null")
     if (!is.null(input$sSP1locationParams)) {
       var.list <- as.data.frame(jsonlite::fromJSON((input$transmittedDatax0x)))
       var.list <- var.list[(var.list$value != "NULL"), ]
-
+print(var.list)
       # if (length(var.list)) {
       #   if (nrow(var.list)) {
       #     for (row in 1:nrow(var.list)) {
