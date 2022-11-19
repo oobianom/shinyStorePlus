@@ -18,19 +18,9 @@ link2input <- function(...,inputtype = "default") {
   input <- envir$input
   output <- envir$output
   session <- envir$session
-  # setup input stores
-  result <- (list(
-    appname = appId,
-    input = inputs,
-    output = FALSE
-  ))
-  session$sendCustomMessage(
-    "retriever",
-    result
-  )
 
-  # retrieve any previously stored
-  # collect previous data
+  # retrieve parameters in the browser link
+  # collect and parse data
   shiny::observe({
     print("yess its not null")
     if (!is.null(input$sSP1locationParams)) {

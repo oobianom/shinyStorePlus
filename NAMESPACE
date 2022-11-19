@@ -3,6 +3,7 @@
 export()
 export(clearStore)
 export(initStore)
+export(link2input)
 export(seeexample)
 export(setupStorage)
 import(htmltools)
