@@ -28,53 +28,53 @@ link2input <- function(...,inputtype = "default") {
       var.list <- as.data.frame(jsonlite::fromJSON((input$sSP1locationParams)))
       print(var.list)
       var.list <- var.list[(var.list$value != "NULL"), ]
-print(var.list)
-      # if (length(var.list)) {
-      #   if (nrow(var.list)) {
-      #     for (row in 1:nrow(var.list)) {
-      #       thisrow <- var.list[row, ]
-      #
-      #       if (grepl("bound-input", thisrow$type)) {
-      #         typeofinput <- strsplit(thisrow$type, "\\.")[[1]][1]
-      #         selrange <- unlist(thisrow$value)
-      #         switch(typeofinput,
-      #           "select" = {
-      #             shiny::updateSelectInput(session, inputId = thisrow$var, selected = selrange)
-      #           },
-      #           "checkboxgroup" = {
-      #             shiny::updateCheckboxGroupInput(session, inputId = thisrow$var, selected = selrange)
-      #           },
-      #           "dateinput" = {
-      #             if (length(selrange) == 1) {
-      #               shiny::updateDateInput(session, inputId = thisrow$var, value = selrange)
-      #             } else {
-      #               shiny::updateDateRangeInput(session, start = selrange[1], end = selrange[2], inputId = thisrow$var)
-      #             }
-      #           },
-      #           "dateinputrange" = {
-      #             shiny::updateDateRangeInput(session, start = selrange[1], end = selrange[2], inputId = thisrow$var)
-      #           },
-      #           "checkbox" = {
-      #             shiny::updateCheckboxInput(session, inputId = thisrow$var, value = as.logical(thisrow$value))
-      #           },
-      #           "radio" = {
-      #             shiny::updateRadioButtons(session, inputId = thisrow$var, selected = thisrow$value)
-      #           },
-      #           {
-      #             shiny::updateTextInput(session, inputId = thisrow$var, value = selrange)
-      #           }
-      #         )
-      #       }
-      #
-      #       # for outputs
-      #       if (grepl("bound-output", thisrow$type)) {
-      #         output[[thisrow$var]] <- shiny::renderText({
-      #           unlist(thisrow$value)
-      #         })
-      #       }
-      #     }
-      #   }
-      # }
+
+      if (length(var.list)) {
+        if (nrow(var.list)) {
+          for (row in 1:nrow(var.list)) {
+            thisrow <- var.list[row, ]
+
+            if (grepl("bound-input", thisrow$type)) {
+              typeofinput <- strsplit(thisrow$type, "\\.")[[1]][1]
+              selrange <- unlist(thisrow$value)
+              switch(typeofinput,
+                "select" = {
+                  shiny::updateSelectInput(session, inputId = thisrow$var, selected = selrange)
+                },
+                "checkboxgroup" = {
+                  shiny::updateCheckboxGroupInput(session, inputId = thisrow$var, selected = selrange)
+                },
+                "dateinput" = {
+                  if (length(selrange) == 1) {
+                    shiny::updateDateInput(session, inputId = thisrow$var, value = selrange)
+                  } else {
+                    shiny::updateDateRangeInput(session, start = selrange[1], end = selrange[2], inputId = thisrow$var)
+                  }
+                },
+                "dateinputrange" = {
+                  shiny::updateDateRangeInput(session, start = selrange[1], end = selrange[2], inputId = thisrow$var)
+                },
+                "checkbox" = {
+                  shiny::updateCheckboxInput(session, inputId = thisrow$var, value = as.logical(thisrow$value))
+                },
+                "radio" = {
+                  shiny::updateRadioButtons(session, inputId = thisrow$var, selected = thisrow$value)
+                },
+                {
+                  shiny::updateTextInput(session, inputId = thisrow$var, value = selrange)
+                }
+              )
+            }
+
+            # for outputs
+            if (grepl("bound-output", thisrow$type)) {
+              output[[thisrow$var]] <- shiny::renderText({
+                unlist(thisrow$value)
+              })
+            }
+          }
+        }
+      }
       }
     }
   })
