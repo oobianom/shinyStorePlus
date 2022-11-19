@@ -1,4 +1,4 @@
-# shinyStorePlus 0.8
+# shinyStorePlus 0.9
 --------------------------------------------------------------------------
 ## Planned Features
 
@@ -7,9 +7,15 @@
 - [ ] Retrieve all stored specific variables & outputs
 - [ ] An updated example of the package in action
 
+# shinyStorePlus 0.8
+--------------------------------------------------------------------------
+## Features
+
+- [x] Convert browser link parameters into Shiny input values
+
 # shinyStorePlus 0.7
 --------------------------------------------------------------------------
-## Planned Features
+## Features
 
 - [x] Bug fix on clearStore
 
