@@ -10,6 +10,7 @@
 #' \donttest{
 #' if (interactive()) {
 #'   seeexample()
+#'   seeexample("browserLinkToInput")
 #' }
 #' }
 #'
