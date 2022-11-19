@@ -4,7 +4,10 @@
 \alias{seeexample}
 \title{Load the example for the package}
 \usage{
-seeexample()
+seeexample(name = c("storeInputs", "browserLinkToInput"))
+}
+\arguments{
+\item{name}{the name of example to view. choices include storeInputs or browserLinkToInput}
 }
 \value{
 An example of inputs persistently stored when changed and the page refreshed
