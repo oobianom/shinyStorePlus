@@ -26,11 +26,10 @@ link2input <- function(...,inputtype = "default") {
 
       if(input$sSP1locationParams != "{}"){
       var.list <- as.data.frame(jsonlite::fromJSON((input$sSP1locationParams)))
-      print(var.list)
       var.list <-as.data.frame(t(var.list))
       var.list$var <- row.names(var.list)
-      var.list <- var.list[(var.list$V1 != "NULL"), ]
-
+      #var.list <- var.list[(var.list$V1 != "NULL"), ]
+print(var.list)
       if (length(var.list)) {
         if (nrow(var.list)) {
           for (row in 1:nrow(var.list)) {
