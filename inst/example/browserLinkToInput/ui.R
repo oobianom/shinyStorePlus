@@ -22,7 +22,7 @@ ui <- fluidPage(
 
       # Input: Numeric entry for number of obs to view ----
       numericInput(
-        inputId = "obs",
+        inputId = "cd323",
         label = "Number of observations to view:",
         value = 10
       ),

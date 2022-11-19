@@ -67,13 +67,6 @@ link2input <- function(...,inputtype = "default") {
                 }
               )
             }
-
-            # for outputs
-            if (grepl("bound-output", thisrow$type)) {
-              output[[thisrow$var]] <- shiny::renderText({
-                unlist(thisrow$V1)
-              })
-            }
           }
         }
       }
