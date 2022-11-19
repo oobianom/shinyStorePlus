@@ -28,15 +28,11 @@ link2input <- function(...,inputtype = "default") {
       var.list <- as.data.frame(jsonlite::fromJSON((input$sSP1locationParams)))
       var.list <-as.data.frame(t(var.list))
       var.list$var <- row.names(var.list)
-      #var.list <- var.list[(var.list$V1 != "NULL"), ]
-print(var.list)
+      var.list <- var.list[(var.list$V1 != "NULL"), ]
       if (length(var.list)) {
         if (nrow(var.list)) {
           for (row in 1:nrow(var.list)) {
             thisrow <- var.list[row, ]
-
-            if (grepl("bound-input", thisrow$type)) {
-              typeofinput <- strsplit(thisrow$type, "\\.")[[1]][1]
               finalval <- unlist(thisrow$V1)
               switch(inputtype,
                 "select" = {
@@ -65,7 +61,7 @@ print(var.list)
                   shiny::updateTextInput(session, inputId = thisrow$var, value = finalval)
                 }
               )
-            }
+
           }
         }
       }
