@@ -1,15 +1,28 @@
-#' Convert Browser Location Parameters to Shiny Input Values
+#' Convert Browser Location Parameters to Shiny Input and Output Values
 #'
-#' Parse the browser link and retrieve parameters for inclusion as values in inputs
+#' Parse the browser link and retrieve parameters for inclusion as values in inputs or outputs
 #'
 #' @param ... List of Shiny input IDs to match with window location parameters
 #' @param inputtype Type of inputs being included
 #'
-#' @note the entered inputs should be a list in order to be parsed
+#' @note a great example of how to use this functionality can be found in https://cran.r-project.org/web/packages/shinyStorePlus/vignettes/shinystoreplus_v08.html
 #' @return Setting of the Shiny inputs to the values of the parameters in the browser link
 #' @examples
+#' if(interactive()){
+#' #within the server function
+#' server <- function(input,output,session) {
+#' link2input(
+#'   cd323 = "name",
+#'   datasetbin = "data",
+#'   numberid = "num"
+#'   )
 #'
-#' link2input(id1 = "name", id2 = "type")
+#' link2input(
+#'   outputid = "outt",
+#'   inputtype = "output"
+#' )
+#' }
+#' }
 #' @export
 #'
 
@@ -61,6 +74,11 @@ link2input <- function(..., inputtype = "default") {
                   },
                   "radio" = {
                     shiny::updateRadioButtons(session, inputId = thisrow$var, selected = thisrow$val)
+                  },
+                  "output" = {
+                    output[[thisrow$var]] = renderText({
+                      thisrow$val
+                    })
                   },
                   {
                     shiny::updateTextInput(session, inputId = thisrow$var, value = thisrow$val)

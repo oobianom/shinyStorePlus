@@ -2,7 +2,7 @@
 % Please edit documentation in R/locationParms.R
 \name{link2input}
 \alias{link2input}
-\title{Convert Browser Location Parameters to Shiny Input Values}
+\title{Convert Browser Location Parameters to Shiny Input and Output Values}
 \usage{
 link2input(..., inputtype = "default")
 }
@@ -15,12 +15,25 @@ link2input(..., inputtype = "default")
 Setting of the Shiny inputs to the values of the parameters in the browser link
 }
 \description{
-Parse the browser link and retrieve parameters for inclusion as values in inputs
+Parse the browser link and retrieve parameters for inclusion as values in inputs or outputs
 }
 \note{
-the entered inputs should be a list in order to be parsed
+a great example of how to use this functionality can be found in https://cran.r-project.org/web/packages/shinyStorePlus/vignettes/shinystoreplus_v08.html
 }
 \examples{
+if(interactive()){
+#within the server function
+server <- function(input,output,session) {
+link2input(
+  cd323 = "name",
+  datasetbin = "data",
+  numberid = "num"
+  )
 
-link2input(id1 = "name", id2 = "type")
+link2input(
+  outputid = "outt",
+  inputtype = "output"
+)
+}
+}
 }

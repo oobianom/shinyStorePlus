@@ -1,0 +1,258 @@
+---
+title: "With  shinyStorePlus v0.8, transfer browser link parameters to shiny inputs or outputs"
+author: "Obinna N. Obianom"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{With  shinyStorePlus v0.8, transfer browser link parameters to shiny inputs or outputs}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Introduction
+
+__Imagine that your browser link looks something like this: http://127.0.0.1:6316/?data=pressure&name=obinna&num=50&outt=wowowow __
+
+What if you'd like the transfer the value of __data__ and __name__ and __num__ to a shiny input, and the value of __outt__ to a shiny output. That can be accomplished using shinyStorePlus' latest version. 
+
+Here is how you do it ...
+
+<style>body{max-width:unset!important;}pre.sourceCode{background-color:#d8d800!important;}code.sourceCode{background-color:#d8d800!important;color:fff!important;}</style>
+
+## Step 1: Start with an already working application
+
+Below is the code for an application to which we will integrate the shinyStorePlus package
+
+```{r eval=FALSE,echo=TRUE}
+
+# library
+library(shiny)
+
+if(interactive()) {
+ui <- fluidPage(
+  # Application title
+  titlePanel("Transfer browser link parameters to shiny input"),
+
+  # Sidebar with a slider input for number of bins
+  selectInput(
+    inputId = "datasetbin",
+    label = "Choose an option",
+    choices = c("rock", "pressure", "cars")
+  ),
+  textInput(
+    inputId = "cd323",
+    label = "Choose a name",
+    value = "No name"
+  ),
+
+  numericInput(
+    inputId = "number1",
+    label = "Choose a number",
+    value = 10
+  ),
+  
+  htmlOutput("outputnum")
+)
+
+server <- function(input,output,session) {
+}
+
+shinyApp(ui = ui, server = server)
+}
+
+```
+
+
+## Step 2: Install and attach the <code>shinyStorePlus 0.8</code> R package
+
+The shinyStorePlus package is available on CRAN and can be installed as shown below
+
+`install.packages(shinyStorePlus)`
+
+Attach library 
+
+`library(shinyStorePlus)`
+
+Now, the code you have should look like this ...
+
+
+```{r eval=FALSE,echo=TRUE}
+
+# library
+library(shiny)
+library(shinyStorePlus)
+
+if(interactive()) {
+ui <- fluidPage(
+  # Application title
+  titlePanel("Transfer browser link parameters to shiny input"),
+
+  # Sidebar with a slider input for number of bins
+  selectInput(
+    inputId = "datasetbin",
+    label = "Choose an option",
+    choices = c("rock", "pressure", "cars")
+  ),
+  textInput(
+    inputId = "cd323",
+    label = "Choose a name",
+    value = "No name"
+  ),
+
+  numericInput(
+    inputId = "number1",
+    label = "Choose a number",
+    value = 10
+  ),
+  
+  htmlOutput("outputnum")
+)
+
+server <- function(input,output,session) {
+}
+
+shinyApp(ui = ui, server = server)
+}
+
+```
+
+
+## Step 3: Initialize by including the scripts required for processing the stores
+
+You must now initialize for the package to work. Its as simple as inserting the function below within the <code>fluidPage()</code>
+
+`initStore()`
+
+Now, the code you have should look like this ...
+
+
+```{r eval=FALSE,echo=TRUE}
+
+# library
+library(shiny)
+library(shinyStorePlus)
+
+if(interactive()) {
+ui <- fluidPage(
+  
+  #Initialize shinyStorePlus
+  initStore(),
+  
+  # Application title
+  titlePanel("Transfer browser link parameters to shiny input"),
+
+  # Sidebar with a slider input for number of bins
+  selectInput(
+    inputId = "datasetbin",
+    label = "Choose an option",
+    choices = c("rock", "pressure", "cars")
+  ),
+  textInput(
+    inputId = "cd323",
+    label = "Choose a name",
+    value = "No name"
+  ),
+
+  numericInput(
+    inputId = "number1",
+    label = "Choose a number",
+    value = 10
+  ),
+  
+  htmlOutput("outputnum")
+)
+
+server <- function(input,output,session) {
+}
+
+shinyApp(ui = ui, server = server)
+}
+
+```
+
+
+
+## Step 4: Setup the matching of parameters to input values
+
+Match the Shiny input IDs to paramters in the link.
+
+Now, the code you have should look like this ...
+
+
+```{r eval=FALSE,echo=TRUE}
+
+# library
+library(shiny)
+library(shinyStorePlus)
+
+if(interactive()) {
+ui <- fluidPage(
+  
+  #Initialize shinyStorePlus
+  initStore(),
+  
+  # Application title
+  titlePanel("Transfer browser link parameters to shiny input"),
+
+  # Sidebar with a slider input for number of bins
+  selectInput(
+    inputId = "datasetbin",
+    label = "Choose an option",
+    choices = c("rock", "pressure", "cars")
+  ),
+  textInput(
+    inputId = "cd323",
+    label = "Choose a name",
+    value = "No name"
+  ),
+
+  numericInput(
+    inputId = "number1",
+    label = "Choose a number",
+    value = 10
+  ),
+  
+  htmlOutput("outputnum")
+)
+
+server <- function(input,output,session) {
+  # for the inputs
+  link2input(
+    #example: shiny element ID = link parameter
+    cd323 = "name",
+    datasetbin = "data",
+    number1 = "num"
+    )
+  #for the outputs
+  link2input(
+    outputnum = "outt",
+    inputtype = "output"
+  )
+  
+}
+
+shinyApp(ui = ui, server = server)
+}
+
+```
+
+## Step 5: Run the final code and include the parameters in the browser link
+
+Paste the final R code into your console and run. When the Shiny link launches, it may look something like this " __http://127.0.0.1:6316 __ "
+
+Now, you must include the parameters in the browser link to see the magic happen. So now, you can transform that link into  " __http://127.0.0.1:6316/?data=pressure&name=obinna&num=50&outt=wowowow __ "
+
+That will work!
+
+  
+## Official links
+
+Documentation: https://shinystoreplus.obi.obianom.com
+Code and report issues: https://github.com/oobianom/shinyStorePlus/issues
+

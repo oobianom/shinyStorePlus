@@ -21,5 +21,6 @@ ui <- fluidPage(
     inputId = "number1",
     label = "Choose a number",
     value = 10
-  )
+  ),
+  htmlOutput("outputnum")
 )
