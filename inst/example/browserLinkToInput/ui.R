@@ -15,8 +15,8 @@ ui <- fluidPage(
         value = 30
       ),
       selectInput(
-        inputId = "dataset",
-        label = "Choose a dataset:",
+        inputId = "datasetbin",
+        label = "Choose a dataset bin:",
         choices = c("rock", "pressure", "cars")
       ),
 

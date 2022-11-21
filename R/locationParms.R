@@ -19,11 +19,13 @@ link2input <- function(...,inputtype = "default") {
   output <- envir$output
   session <- envir$session
 
+  elm = list(...)
+
   # retrieve parameters in the browser link
   # collect and parse data
   shiny::observe({
     if (!is.null(input$sSP1locationParams)) {
-
+      print(names(elm))
       if(input$sSP1locationParams != "{}"){
       var.list <- as.data.frame(jsonlite::fromJSON((input$sSP1locationParams)))
       var.list <-as.data.frame(t(var.list))

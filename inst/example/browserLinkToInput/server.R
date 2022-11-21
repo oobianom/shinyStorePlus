@@ -15,7 +15,7 @@ server <- function(input, output, session) {
   #clearStore("application501")
 
   #insert at the bottom  !!!IMPORTANT
-  link2input(cd323="name")
+  link2input(cd323="name",datasetbin="hot")
 
 }
 
