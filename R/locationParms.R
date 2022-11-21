@@ -9,64 +9,67 @@
 #' @return Setting of the Shiny inputs to the values of the parameters in the browser link
 #' @examples
 #'
-#' link2input(id1 = "name", id2="type")
+#' link2input(id1 = "name", id2 = "type")
 #' @export
 #'
 
-link2input <- function(...,inputtype = "default") {
+link2input <- function(..., inputtype = "default") {
   envir <- parent.frame()
   input <- envir$input
   output <- envir$output
   session <- envir$session
 
-  elm = list(...)
+  elm <- list(...)
 
   # retrieve parameters in the browser link
   # collect and parse data
   shiny::observe({
     if (!is.null(input$sSP1locationParams)) {
-      print(names(elm))
-      if(input$sSP1locationParams != "{}"){
-      var.list <- as.data.frame(jsonlite::fromJSON((input$sSP1locationParams)))
-      var.list <-as.data.frame(t(var.list))
-      var.list$var <- row.names(var.list)
-      var.list <- var.list[(var.list$V1 != "NULL"), ]
-      if (length(var.list)) {
-        if (nrow(var.list)) {
-          for (row in 1:nrow(var.list)) {
-            thisrow <- var.list[row, ]
-              finalval <- unlist(thisrow$V1)
-              switch(inputtype,
-                "select" = {
-                  shiny::updateSelectInput(session, inputId = thisrow$var, selected = finalval)
-                },
-                "checkboxgroup" = {
-                  shiny::updateCheckboxGroupInput(session, inputId = thisrow$var, selected = finalval)
-                },
-                "dateinput" = {
-                  if (length(finalval) == 1) {
-                    shiny::updateDateInput(session, inputId = thisrow$var, value = finalval)
-                  } else {
-                    shiny::updateDateRangeInput(session, start = finalval[1], end = finalval[2], inputId = thisrow$var)
+      if (input$sSP1locationParams != "{}") {
+        var.list <- as.data.frame(jsonlite::fromJSON((input$sSP1locationParams)))
+        var.list <- as.data.frame(t(var.list))
+        var.list$var <- row.names(var.list)
+        var.list <- var.list[(var.list$V1 != "NULL"), ]
+        if (length(var.list)) {
+          if (nrow(var.list) & length(names(elm))) {
+            for (row in names(elm)) {
+              finalval <- var.list[var.list$var == elm[[row]], ][1]
+              if (nrow(finalval)) {
+                thisrow <- list(
+                  var = row,
+                  val = as.character(finalval)
+                )
+                switch(inputtype,
+                  "select" = {
+                    shiny::updateSelectInput(session, inputId = thisrow$var, selected = thisrow$val)
+                  },
+                  "checkboxgroup" = {
+                    shiny::updateCheckboxGroupInput(session, inputId = thisrow$var, selected = thisrow$val)
+                  },
+                  "dateinput" = {
+                    if (length(thisrow$val) == 1) {
+                      shiny::updateDateInput(session, inputId = thisrow$var, value = thisrow$val)
+                    } else {
+                      shiny::updateDateRangeInput(session, start = thisrow$val[1], end = thisrow$val[2], inputId = thisrow$var)
+                    }
+                  },
+                  "dateinputrange" = {
+                    shiny::updateDateRangeInput(session, start = thisrow$val[1], end = thisrow$val[2], inputId = thisrow$var)
+                  },
+                  "checkbox" = {
+                    shiny::updateCheckboxInput(session, inputId = thisrow$var, value = as.logical(thisrow$val))
+                  },
+                  "radio" = {
+                    shiny::updateRadioButtons(session, inputId = thisrow$var, selected = thisrow$val)
+                  },
+                  {
+                    shiny::updateTextInput(session, inputId = thisrow$var, value = thisrow$val)
                   }
-                },
-                "dateinputrange" = {
-                  shiny::updateDateRangeInput(session, start = finalval[1], end = finalval[2], inputId = thisrow$var)
-                },
-                "checkbox" = {
-                  shiny::updateCheckboxInput(session, inputId = thisrow$var, value = as.logical(thisrow$V1))
-                },
-                "radio" = {
-                  shiny::updateRadioButtons(session, inputId = thisrow$var, selected = thisrow$V1)
-                },
-                {
-                  shiny::updateTextInput(session, inputId = thisrow$var, value = finalval)
-                }
-              )
-
+                )
+              }
+            }
           }
         }
-      }
       }
     }
   })
