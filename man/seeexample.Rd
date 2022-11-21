@@ -22,6 +22,7 @@ Changes made to the input will be saved and returned when the page is refresh wi
 \donttest{
 if (interactive()) {
   seeexample()
+  seeexample("browserLinkToInput")
 }
 }
 

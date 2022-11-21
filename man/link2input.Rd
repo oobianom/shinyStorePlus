@@ -22,5 +22,5 @@ the entered inputs should be a list in order to be parsed
 }
 \examples{
 
-link2input(id1 = "name", id2="type")
+link2input(id1 = "name", id2 = "type")
 }

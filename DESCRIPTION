@@ -1,11 +1,11 @@
 Package: shinyStorePlus
 Type: Package
 Title: Secure in-Browser Storage for 'Shiny' Inputs and Variables 
-Version: 0.7
+Version: 0.8
 Authors@R: c(
     person("Obinna", "Obianom", email = "idonshayo@gmail.com", role = c("aut", "cre")))
 Maintainer: Obinna Obianom <idonshayo@gmail.com>
-Description: Store persistent and synchronized data from 'Shiny' inputs within the browser in a secure format. Refresh 'Shiny' applications and preserve user-inputs over multiple sessions. A database-like storage format is implemented using 'Dexie.js' <https://dexie.org>, a minimal wrapper for 'IndexedDB'.
+Description: Store persistent and synchronized data from 'Shiny' inputs within the browser in a secure format. Refresh 'Shiny' applications and preserve user-inputs over multiple sessions. A database-like storage format is implemented using 'Dexie.js' <https://dexie.org>, a minimal wrapper for 'IndexedDB'. Transfer browser link parameters to 'Shiny' input values.
 License: MIT + file LICENSE
 URL: https://github.com/oobianom/shinyStorePlus
 BugReports: https://github.com/oobianom/shinyStorePlus

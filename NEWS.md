@@ -11,7 +11,7 @@
 --------------------------------------------------------------------------
 ## Features
 
-- [x] Convert browser link parameters into Shiny input values
+- [x] Convert browser link parameters into Shiny input values e.g Transfer the value of 'name' in http://link.com/?name=obianom to a Shiny input
 
 # shinyStorePlus 0.7
 --------------------------------------------------------------------------
