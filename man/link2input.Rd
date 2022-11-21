@@ -21,19 +21,19 @@ Parse the browser link and retrieve parameters for inclusion as values in inputs
 a great example of how to use this functionality can be found in https://cran.r-project.org/web/packages/shinyStorePlus/vignettes/shinystoreplus_v08.html
 }
 \examples{
-if(interactive()){
-#within the server function
-server <- function(input,output,session) {
-link2input(
-  cd323 = "name",
-  datasetbin = "data",
-  numberid = "num"
-  )
+if (interactive()) {
+  # within the server function
+  server <- function(input, output, session) {
+    link2input(
+      cd323 = "name",
+      datasetbin = "data",
+      numberid = "num"
+    )
 
-link2input(
-  outputid = "outt",
-  inputtype = "output"
-)
-}
+    link2input(
+      outputid = "outt",
+      inputtype = "output"
+    )
+  }
 }
 }

@@ -8,20 +8,20 @@
 #' @note a great example of how to use this functionality can be found in https://cran.r-project.org/web/packages/shinyStorePlus/vignettes/shinystoreplus_v08.html
 #' @return Setting of the Shiny inputs to the values of the parameters in the browser link
 #' @examples
-#' if(interactive()){
-#' #within the server function
-#' server <- function(input,output,session) {
-#' link2input(
-#'   cd323 = "name",
-#'   datasetbin = "data",
-#'   numberid = "num"
-#'   )
+#' if (interactive()) {
+#'   # within the server function
+#'   server <- function(input, output, session) {
+#'     link2input(
+#'       cd323 = "name",
+#'       datasetbin = "data",
+#'       numberid = "num"
+#'     )
 #'
-#' link2input(
-#'   outputid = "outt",
-#'   inputtype = "output"
-#' )
-#' }
+#'     link2input(
+#'       outputid = "outt",
+#'       inputtype = "output"
+#'     )
+#'   }
 #' }
 #' @export
 #'
@@ -76,7 +76,7 @@ link2input <- function(..., inputtype = "default") {
                     shiny::updateRadioButtons(session, inputId = thisrow$var, selected = thisrow$val)
                   },
                   "output" = {
-                    output[[thisrow$var]] = renderText({
+                    output[[thisrow$var]] <- renderText({
                       thisrow$val
                     })
                   },

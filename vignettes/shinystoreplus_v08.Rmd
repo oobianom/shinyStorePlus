@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 
 ## Introduction
 
-__Imagine that your browser link looks something like this: http://127.0.0.1:6316/?data=pressure&name=obinna&num=50&outt=wowowow __
+__Imagine that your browser link looks something like this: 127.0.0.1:6316/?data=pressure&name=obinna&num=50&outt=wowowow __
 
 What if you'd like the transfer the value of __data__ and __name__ and __num__ to a shiny input, and the value of __outt__ to a shiny output. That can be accomplished using shinyStorePlus' latest version. 
 
@@ -244,9 +244,9 @@ shinyApp(ui = ui, server = server)
 
 ## Step 5: Run the final code and include the parameters in the browser link
 
-Paste the final R code into your console and run. When the Shiny link launches, it may look something like this " __http://127.0.0.1:6316 __ "
+Paste the final R code into your console and run. When the Shiny link launches, it may look something like this " __127.0.0.1:6316 __ "
 
-Now, you must include the parameters in the browser link to see the magic happen. So now, you can transform that link into  " __http://127.0.0.1:6316/?data=pressure&name=obinna&num=50&outt=wowowow __ "
+Now, you must include the parameters in the browser link to see the magic happen. So now, you can transform that link into  " __127.0.0.1:6316/?data=pressure&name=obinna&num=50&outt=wowowow __ "
 
 That will work!
 
