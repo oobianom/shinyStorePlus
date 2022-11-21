@@ -1,6 +1,6 @@
-# shinyStorePlus R package
+# The shinyStorePlus R package
 
-__Official docs link:__ [shinystoreplus.obi.obianom.com](https://shinystoreplus.obi.obianom.com/articles/using_shinystoreplus.html) | [View Demo Shiny  App](https://r2apps.shinyapps.io/shinystoreplus)
+### Official docs link: [shinystoreplus.obi.obianom.com](https://shinystoreplus.obi.obianom.com/articles/using_shinystoreplus.html) | [View Demo Shiny  App](https://r2apps.shinyapps.io/shinystoreplus)
 
 ### Other packages required for shinyStorePlus: https://depends.rpkg.net/package/shinyStorePlus 
 
