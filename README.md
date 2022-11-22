@@ -12,7 +12,7 @@
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/shinyStorePlus)](https://cran.r-project.org/package=shinyStorePlus) [![](https://cranlogs.r-pkg.org/badges/grand-total/shinyStorePlus)](https://cran.r-project.org/package=shinyStorePlus) [![](https://rpkg.net/pub-age/shinyStorePlus)](https://rpkg.net/package/shinyStorePlus)
 
 
-### In-browser storage for Shiny persistent, synchronized data from the inputs using IndexedDB.Transfer browser link parameters to 'Shiny' input or output values.
+### In-browser storage for Shiny persistent, synchronized data from the inputs using IndexedDB. Transfer browser link parameters to Shiny input or output values.
 
 -------------------------------------------------------------------------------------------------
 
