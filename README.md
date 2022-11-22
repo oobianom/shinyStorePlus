@@ -7,7 +7,7 @@
 
 ### Other packages required for shinyStorePlus: https://depends.rpkg.net/package/shinyStorePlus 
 
-### Author R scholar profile: https://scholar.rpkg.net/aut/obinna%20obianom 
+### Author R scholar profile: https://scholar.rpkg.net/aut/obinna+obianom 
 
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/shinyStorePlus)](https://cran.r-project.org/package=shinyStorePlus) [![](https://cranlogs.r-pkg.org/badges/grand-total/shinyStorePlus)](https://cran.r-project.org/package=shinyStorePlus) [![](https://rpkg.net/pub-age/shinyStorePlus)](https://rpkg.net/package/shinyStorePlus)
 
