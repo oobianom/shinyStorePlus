@@ -1,6 +1,6 @@
 # The shinyStorePlus R package
 
-### Official docs link: [shinystoreplus.obi.obianom.com](https://shinystoreplus.obi.obianom.com/articles/using_shinystoreplus.html)
+### Official docs link: [https://shinystoreplus.obi.obianom.com](https://shinystoreplus.obi.obianom.com/articles/using_shinystoreplus.html)
 
 #### Demo 1: [View Demo Shiny  App](https://r2apps.shinyapps.io/shinystoreplus)
 #### Demo 2: [View Demo Shiny  App](https://r2apps.shinyapps.io/browserLinkToInput?data=pressure&name=obinna&num=50&outt=wowowow)
