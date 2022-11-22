@@ -3,13 +3,16 @@
 ### Official docs link: [shinystoreplus.obi.obianom.com](https://shinystoreplus.obi.obianom.com/articles/using_shinystoreplus.html)
 
 #### Demo 1: [View Demo Shiny  App](https://r2apps.shinyapps.io/shinystoreplus)
-#### Demo 2: 
+#### Demo 2: [View Demo Shiny  App](https://r2apps.shinyapps.io/browserLinkToInput?data=pressure&name=obinna&num=50&outt=wowowow)
 
 ### Other packages required for shinyStorePlus: https://depends.rpkg.net/package/shinyStorePlus 
 
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/shinyStorePlus)](https://cran.r-project.org/package=shinyStorePlus) [![](https://cranlogs.r-pkg.org/badges/grand-total/shinyStorePlus)](https://cran.r-project.org/package=shinyStorePlus) [![](https://rpkg.net/pub-age/shinyStorePlus)](https://rpkg.net/package/shinyStorePlus)
 
-In-browser storage for Shiny persistent, synchronized data from the inputs using IndexedDB 
+
+### In-browser storage for Shiny persistent, synchronized data from the inputs using IndexedDB.Transfer browser link parameters to 'Shiny' input or output values.
+
+-------------------------------------------------------------------------------------------------
 
 There has been tremendous contribution from the R community on the topic of storing Shiny data and re-using them within an application. The current solutions include Dropbox, Amazon s3, Googlesheets, SQLite, MongoDB and so on. However, a problem with these methods is that it takes a number of steps in order to correctly program your Shiny application for them. More so, the owner of the accounts may need to consistently monitor the storage accounts to ensure that it is not expire or that the data storage is not exhausted. 
 
@@ -17,7 +20,7 @@ __So let's face it. When you develop a shiny app that allows a user to change in
 
 ----------------------------------------------------------------------------------------------
 
-As of __version 0.8__ , you are also able to transfer the parameters in a browser link to Shiny inputs and outputs. e.g extracting the value of name from __http://127.0.0.1:6692/?data=pressure&name=obinna&num=50&outt=wowowow__. See [link]()
+As of __version 0.8__ , you are also able to transfer the parameters in a browser link to Shiny inputs and outputs. e.g extracting the value of name from __http://127.0.0.1:6692/?data=pressure&name=obinna&num=50&outt=wowowow__. See [link](https://shinystoreplus.obi.obianom.com/articles/shinystoreplus_v08.html)
 
 -------------------------------------------------------------------------------------------------
 
