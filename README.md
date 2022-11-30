@@ -6,8 +6,8 @@
 
 ### Official docs link: [https://shinystoreplus.obi.obianom.com](https://shinystoreplus.obi.obianom.com)
 
-#### Demo 1: [View Demo Shiny  App](https://r2apps.shinyapps.io/shinystoreplus)
-#### Demo 2: [View Demo Shiny  App](https://r2apps.shinyapps.io/browserLinkToInput?data=pressure&name=obinna&num=50&outt=wowowow)
+### Demo 1: [View Demo Shiny  App](https://r2apps.shinyapps.io/shinystoreplus)
+### Demo 2: [View Demo Shiny  App](https://r2apps.shinyapps.io/browserLinkToInput?data=pressure&name=obinna&num=50&outt=wowowow)
 
 ### Other packages required for shinyStorePlus: https://depends.rpkg.net/package/shinyStorePlus 
 
