@@ -13,7 +13,7 @@
 
 ### Author R scholar profile: https://scholar.rpkg.net/aut/obinna+obianom 
 
-[![](https://rpkg.net/package/shinyStorePlus)](https://rpkg.net/package/shinyStorePlus)
+[![](https://rpkg.net/pub-age/shinyStorePlus)](https://rpkg.net/package/shinyStorePlus)
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/shinyStorePlus)](https://cran.r-project.org/package=shinyStorePlus) [![](https://cranlogs.r-pkg.org/badges/grand-total/shinyStorePlus)](https://cran.r-project.org/package=shinyStorePlus) 
 
 
