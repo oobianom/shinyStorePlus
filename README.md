@@ -1,4 +1,4 @@
-# The shinyStorePlus R package
+# shinyStorePlus R package
 
 ### TWO MAIN FEATURES: (1) In-browser storage for Shiny persistent, synchronized data from the inputs using IndexedDB. (2) Transfer browser link parameters to Shiny input or output values.
 
@@ -13,7 +13,7 @@
 
 ### Author R scholar profile: https://scholar.rpkg.net/aut/obinna+obianom 
 
-[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/shinyStorePlus)](https://cran.r-project.org/package=shinyStorePlus) [![](https://cranlogs.r-pkg.org/badges/grand-total/shinyStorePlus)](https://cran.r-project.org/package=shinyStorePlus) [![](https://rpkg.net/pub-age/shinyStorePlus)](https://rpkg.net/package/shinyStorePlus)
+[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/shinyStorePlus)](https://cran.r-project.org/package=shinyStorePlus) [![](https://cranlogs.r-pkg.org/badges/grand-total/shinyStorePlus)](https://cran.r-project.org/package=shinyStorePlus) 
 
 
 
@@ -57,9 +57,7 @@ install_github("oobianom/shinyStorePlus")
 
 ## Demo 
 
-### Demo link
 
-[Link to shiny app](https://r2apps.shinyapps.io/shinystoreplus)
 
 ### Demo screenshot
 
