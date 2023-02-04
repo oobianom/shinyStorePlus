@@ -9,6 +9,10 @@
 ### Demo 1: [View Demo Shiny  App](https://r2apps.shinyapps.io/shinystoreplus)
 ### Demo 2: [View Demo Shiny  App](https://r2apps.shinyapps.io/browserLinkToInput?data=pressure&name=obinna&num=50&outt=wowowow)
 
+### Start with a simple example code #1: https://github.com/oobianom/shinyStorePlus/tree/main/inst/example/storeInputs
+
+### Start with a simple example code #2: https://github.com/oobianom/shinyStorePlus/tree/main/inst/example/browserLinkToInput
+
 ### Other packages required for shinyStorePlus: https://depends.rpkg.net/package/shinyStorePlus 
 
 ### Author R scholar profile: https://scholar.rpkg.net/aut/obinna+obianom 
