@@ -13,6 +13,8 @@
 
 ### Start with a simple example code #2: https://github.com/oobianom/shinyStorePlus/tree/main/inst/example/browserLinkToInput
 
+### Transformation of various shiny apps using the shinyStorePlus package: https://github.com/oobianom/aagarw30_shinyapps_to-shinyStorePlus
+
 ### Other packages required for shinyStorePlus: https://depends.rpkg.net/package/shinyStorePlus 
 
 ### Author R scholar profile: https://scholar.rpkg.net/aut/obinna+obianom 
