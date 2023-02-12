@@ -1,4 +1,4 @@
-# shinyStorePlus R package <img src="https://shinystoreplus.obi.obianom.com/hex-shinyStorePlus.png" align="right" width="150">
+# shinyStorePlus R package <img src="https://shinystoreplus.obi.obianom.com/hex-shinyStorePlus.png" align="right" width="200">
 
 ### TWO MAIN FEATURES: (1) In-browser storage for Shiny persistent, synchronized data from the inputs using IndexedDB. (2) Transfer browser link parameters to Shiny input or output values.
 
