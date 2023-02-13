@@ -9,7 +9,7 @@
 ### Demo 1: [View Demo Shiny  App](https://r2apps.shinyapps.io/shinystoreplus)
 ### Demo 2: [View Demo Shiny  App](https://r2apps.shinyapps.io/browserLinkToInput?data=pressure&name=obinna&num=50&outt=wowowow)
 
-### Transformation of various shiny apps using the shinyStorePlus package: https://github.com/oobianom/aagarw30_shinyapps_to-shinyStorePlus
+### Transformation of various shiny apps with the shinyStorePlus package: https://github.com/oobianom/aagarw30_shinyapps_to-shinyStorePlus
 
 ### Start with more simple example code #2: https://github.com/oobianom/shinyStorePlus/tree/main/inst/example/storeInputs
 
