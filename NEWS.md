@@ -5,7 +5,7 @@
 - [x] Store all outputs automatically 
 - [ ] Store specific variables
 - [ ] Retrieve all stored specific variables & outputs
-- [ ] An updated example of the package in action
+- [x] An updated example of the package in action
 
 # shinyStorePlus 0.8
 --------------------------------------------------------------------------
