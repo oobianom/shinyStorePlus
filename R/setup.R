@@ -7,7 +7,7 @@
 #' @param outputs choose whether to track all outputs or specific output variables
 #' @param session current session to track
 #'
-#' @note the inputs argument may be a \code{TRUE} or \code{FALSE} or a list of input ids
+#' @note the inputs argument may be a \code{TRUE} or \code{FALSE} or a list of input ids. More examples are located at https://github.com/oobianom/aagarw30_shinyapps_to-shinyStorePlus
 #' @return Embed within a page storage that allows input changes to be saved without slowing down the shiny application
 #' @examples
 #' \donttest{

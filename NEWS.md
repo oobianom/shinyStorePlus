@@ -1,11 +1,18 @@
-# shinyStorePlus 0.9
+# shinyStorePlus 1.0
 --------------------------------------------------------------------------
 ## Planned Features
 
-- [x] Store all outputs automatically 
+- [ ] Store outputs for DT and rhandsontable tables automatically
 - [ ] Store specific variables
 - [ ] Retrieve all stored specific variables & outputs
-- [x] An updated example of the package in action
+
+
+# shinyStorePlus 0.9
+--------------------------------------------------------------------------
+## Features
+
+- [x] Store some outputs automatically 
+- [x] An updated example of the package in action, see https://github.com/oobianom/aagarw30_shinyapps_to-shinyStorePlus
 
 # shinyStorePlus 0.8
 --------------------------------------------------------------------------

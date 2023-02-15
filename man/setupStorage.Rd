@@ -27,7 +27,7 @@ Embed within a page storage that allows input changes to be saved without slowin
 Set up the application and inputs to track and retrieve stores
 }
 \note{
-the inputs argument may be a \code{TRUE} or \code{FALSE} or a list of input ids
+the inputs argument may be a \code{TRUE} or \code{FALSE} or a list of input ids. More examples are located at https://github.com/oobianom/aagarw30_shinyapps_to-shinyStorePlus
 }
 \examples{
 \donttest{

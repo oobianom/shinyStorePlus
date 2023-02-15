@@ -11,7 +11,7 @@ Store persistent and synchronized data from 'Shiny' inputs within the browser in
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/oobianom/shinyStorePlus}
+  \item \url{https://shinystoreplus.obi.obianom.com}
   \item Report bugs at \url{https://github.com/oobianom/shinyStorePlus}
 }
 

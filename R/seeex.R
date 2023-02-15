@@ -4,7 +4,7 @@
 #'
 #' @param name the name of example to view. choices include storeInputs or browserLinkToInput
 #'
-#' @note Changes made to the input will be saved and returned when the page is refresh within the same browser over different sessions
+#' @note Changes made to the input or putputs will be saved and returned when the page is refresh within the same browser over different sessions. More examples are located at https://github.com/oobianom/aagarw30_shinyapps_to-shinyStorePlus
 #' @return An example of inputs persistently stored when changed and the page refreshed
 #' @examples
 #' \donttest{

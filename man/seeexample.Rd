@@ -16,7 +16,7 @@ An example of inputs persistently stored when changed and the page refreshed
 Example of a shiny application with secure in-browser storage of inputs when changed
 }
 \note{
-Changes made to the input will be saved and returned when the page is refresh within the same browser over different sessions
+Changes made to the input or putputs will be saved and returned when the page is refresh within the same browser over different sessions. More examples are located at https://github.com/oobianom/aagarw30_shinyapps_to-shinyStorePlus
 }
 \examples{
 \donttest{
