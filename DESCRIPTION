@@ -15,7 +15,8 @@ Imports:
     shiny,
     jsonlite,
     utils,
-    htmltools
+    htmltools,
+    shinyWidgets
 Suggests: 
     rmarkdown,
     knitr,
