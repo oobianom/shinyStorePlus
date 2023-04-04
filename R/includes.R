@@ -62,7 +62,7 @@
 
 initStore <- function() {
   ssp <- "shinyStorePlus"
-  vs <- "0.6"
+  vs <- "1.1"
   template.loc1 <- file.path(find.package(package = ssp), "scripts")
   htmltools::htmlDependency(
     ssp, vs,
