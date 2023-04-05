@@ -15,9 +15,11 @@ ui <- fluidPage(initStore(),
     inputId = "updateselected", label = "Update selected:",
     choices = c("A", "B", "C"), multiple = FALSE
   ),
+  "switchhhy",
   switchInput(inputId = "hook1", value = TRUE),
 
   textInput(inputId = "updatelabel", label = "Update label", value = "shinyWidgets compatibility example"),
+  "material",
   materialSwitch(inputId = "hook2", label = "Primary switch", status = "danger"),
   prettyCheckbox(
     inputId = "hook3", label = "Check me!", icon = icon("check")
@@ -119,7 +121,7 @@ server <- function(input, output, session) {
   }, ignoreInit = TRUE)
 
   #stores setup - save the values we gave it
-  appid = "test21"
+  appid = "test71"
   setupStorage(appId = appid,inputs = TRUE)
 
 }

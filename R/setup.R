@@ -182,7 +182,8 @@ print(var.list)
                   shiny::updateDateRangeInput(session, start = selrange[1], end = selrange[2], inputId = thisrow$var)
                 },
                 "checkbox" = {
-                  shiny::updateCheckboxInput(session, inputId = thisrow$var, value = as.logical(thisrow$value))
+                  try(shinyWidgets::updateSwitchInput(session, inputId = thisrow$var, value = as.logical(thisrow$value)), silent = TRUE)
+                  try(shiny::updateCheckboxInput(session, inputId = thisrow$var, value = as.logical(thisrow$value)), silent = TRUE)
                 },
                 "radio" = {
                   try(shinyWidgets::updateRadioGroupButtons(session, inputId = thisrow$var, selected = thisrow$value), silent = TRUE)
