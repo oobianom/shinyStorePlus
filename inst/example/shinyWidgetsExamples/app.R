@@ -2,22 +2,18 @@ library(shiny)
 library(shinyWidgets)
 library(shinyStorePlus)
 
-ui <- fluidPage(initStore(),
+ui <- fluidPage(
+  initStore(),
   radioGroupButtons(
     inputId = "hook0",
     choices = c("A", "B", "C"),
     label = "shinyWidgets compatibility example"
   ),
-
   verbatimTextOutput(outputId = "res"),
-
   pickerInput(
     inputId = "updateselected", label = "Update selected:",
     choices = c("A", "B", "C"), multiple = FALSE
   ),
-  "Switch input",
-  switchInput(inputId = "hook121", value = FALSE),
-
   textInput(inputId = "updatelabel", label = "Update label", value = "shinyWidgets compatibility example"),
   "Material switch",
   materialSwitch(inputId = "hook2", label = "Primary switch", status = "danger"),
@@ -60,7 +56,7 @@ ui <- fluidPage(initStore(),
     ),
     multiple = TRUE
   ),
-
+  "Others (still not working)",
   virtualSelectInput(
     inputId = "hook9",
     label = "Select:",
@@ -74,7 +70,7 @@ ui <- fluidPage(initStore(),
     search = TRUE,
     multiple = TRUE
   ),
-
+  switchInput(inputId = "hook121", value = FALSE),
   airDatepickerInput(
     inputId = "hook10",
     label = "Select:",
@@ -82,12 +78,9 @@ ui <- fluidPage(initStore(),
     multiple = 5,
     clearButton = TRUE
   )
-
-
 )
 
 server <- function(input, output, session) {
-
   output$res <- renderPrint({
     input$hook0
   })
@@ -106,25 +99,32 @@ server <- function(input, output, session) {
     )
   })
 
-  observeEvent(input$updateselected, {
-    updateRadioGroupButtons(
-      session = session, inputId = "hook0",
-      selected = input$updateselected
-    )
-  }, ignoreNULL = TRUE, ignoreInit = TRUE)
+  observeEvent(input$updateselected,
+    {
+      updateRadioGroupButtons(
+        session = session, inputId = "hook0",
+        selected = input$updateselected
+      )
+    },
+    ignoreNULL = TRUE,
+    ignoreInit = TRUE
+  )
 
-  observeEvent(input$updatelabel, {
-    updateRadioGroupButtons(
-      session = session, inputId = "hook0",
-      label = input$updatelabel
-    )
-  }, ignoreInit = TRUE)
+  observeEvent(input$updatelabel,
+    {
+      updateRadioGroupButtons(
+        session = session, inputId = "hook0",
+        label = input$updatelabel
+      )
+    },
+    ignoreInit = TRUE
+  )
 
-  #stores setup - save the values we gave it
-  appid = "test71"
-  setupStorage(appId = appid,inputs = TRUE)
-
+  # stores setup - save the values we gave it
+  appid <- "test71"
+  setupStorage(appId = appid, inputs = TRUE)
 }
 
-if (interactive())
+if (interactive()) {
   shinyApp(ui = ui, server = server)
+}
