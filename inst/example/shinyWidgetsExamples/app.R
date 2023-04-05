@@ -15,11 +15,11 @@ ui <- fluidPage(initStore(),
     inputId = "updateselected", label = "Update selected:",
     choices = c("A", "B", "C"), multiple = FALSE
   ),
-  "switchhhy",
-  switchInput(inputId = "hook1", value = TRUE),
+  "Switch input",
+  switchInput(inputId = "hook121", value = FALSE),
 
   textInput(inputId = "updatelabel", label = "Update label", value = "shinyWidgets compatibility example"),
-  "material",
+  "Material switch",
   materialSwitch(inputId = "hook2", label = "Primary switch", status = "danger"),
   prettyCheckbox(
     inputId = "hook3", label = "Check me!", icon = icon("check")
@@ -70,7 +70,7 @@ ui <- fluidPage(initStore(),
       "Autumn" = c("September", "October", "November"),
       "Winter" = c("December", "January", "February")
     ),
-    showValueAsTags = TRUE,
+    showValueAsTags = FALSE,
     search = TRUE,
     multiple = TRUE
   ),
