@@ -119,7 +119,7 @@ server <- function(input, output, session) {
   }, ignoreInit = TRUE)
 
   #stores setup - save the values we gave it
-  appid = "test5"
+  appid = "test21"
   setupStorage(appId = appid,inputs = TRUE)
 
 }
