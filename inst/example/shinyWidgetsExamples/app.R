@@ -81,14 +81,6 @@ ui <- fluidPage(initStore(),
     clearButton = TRUE
   ),
 
-  treeInput(
-    inputId = "hook11",
-    label = "Select cities:",
-    choices = create_tree(cities),
-    returnValue = "text",
-    closeDepth = 1
-  ),
-
   searchInput(
     inputId = "hook12",
     label = "Enter your search :",
