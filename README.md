@@ -15,7 +15,7 @@
 
 ### Start with more simple example code #3: https://github.com/oobianom/shinyStorePlus/tree/main/inst/example/browserLinkToInput
 
-
+### Teaser video: https://www.youtube.com/watch?v=gkZfCF4Kr7I
 
 ### Other packages required for shinyStorePlus: https://depends.rpkg.net/package/shinyStorePlus 
 

@@ -4,10 +4,12 @@
 \alias{seeexample}
 \title{Load the example for the package}
 \usage{
-seeexample(name = c("storeInputs", "browserLinkToInput"))
+seeexample(
+  name = c("storeInputs", "browserLinkToInput", "shinyWidgetsExamples")
+)
 }
 \arguments{
-\item{name}{the name of example to view. choices include storeInputs or browserLinkToInput}
+\item{name}{the name of example to view. choices include storeInputs or browserLinkToInput or shinyWidgetsExamples}
 }
 \value{
 An example of inputs persistently stored when changed and the page refreshed

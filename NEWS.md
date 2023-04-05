@@ -10,7 +10,7 @@
 --------------------------------------------------------------------------
 ## Features
 
-- [ ] Compatibility for shinyWidgets package
+- [x] Compatibility for shinyWidgets package
 
 
 

@@ -1,6 +1,6 @@
 Package: shinyStorePlus
 Type: Package
-Title: Secure in-Browser Storage for 'Shiny' Inputs and Variables 
+Title: Secure in-Browser Storage for 'Shiny' Inputs, Outputs and Variables 
 Version: 1.1
 Authors@R: c(
     person("Obinna", "Obianom", email = "idonshayo@gmail.com", role = c("aut", "cre")))
@@ -25,4 +25,4 @@ Encoding: UTF-8
 VignetteBuilder: knitr
 Language: en-US
 LazyData: false
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3

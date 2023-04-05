@@ -154,7 +154,7 @@ setupStorage <- function(appId, inputs = TRUE, outputs = FALSE, session = getDef
     if (!is.null(input$transmittedDatax0x)) {
       var.list <- as.data.frame(jsonlite::fromJSON((input$transmittedDatax0x)))
       var.list <- var.list[(var.list$value != "NULL"), ]
-print(var.list)
+
       if (length(var.list)) {
         if (nrow(var.list)) {
           for (row in 1:nrow(var.list)) {
