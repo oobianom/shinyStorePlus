@@ -1,4 +1,4 @@
-# shinyStorePlus 1.0
+# shinyStorePlus 1.2
 --------------------------------------------------------------------------
 ## Planned Features
 
@@ -6,13 +6,20 @@
 - [ ] Store specific variables
 - [ ] Retrieve all stored specific variables & outputs
 
+# shinyStorePlus 1.1
+--------------------------------------------------------------------------
+## Features
+
+- [ ] Compatibility for shinyWidgets package
+
+
 
 # shinyStorePlus 0.9
 --------------------------------------------------------------------------
 ## Features
 
 - [x] Store some outputs automatically 
-- [x] An updated example of the package in action, see https://github.com/oobianom/aagarw30_shinyapps_to-shinyStorePlus
+- [x] Updated examples of the package in action, see https://github.com/oobianom/aagarw30_shinyapps_to-shinyStorePlus
 
 # shinyStorePlus 0.8
 --------------------------------------------------------------------------

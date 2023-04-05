@@ -154,7 +154,7 @@ setupStorage <- function(appId, inputs = TRUE, outputs = FALSE, session = getDef
     if (!is.null(input$transmittedDatax0x)) {
       var.list <- as.data.frame(jsonlite::fromJSON((input$transmittedDatax0x)))
       var.list <- var.list[(var.list$value != "NULL"), ]
-
+print(var.list)
       if (length(var.list)) {
         if (nrow(var.list)) {
           for (row in 1:nrow(var.list)) {
@@ -168,7 +168,8 @@ setupStorage <- function(appId, inputs = TRUE, outputs = FALSE, session = getDef
                   shiny::updateSelectInput(session, inputId = thisrow$var, selected = selrange)
                 },
                 "checkboxgroup" = {
-                  shiny::updateCheckboxGroupInput(session, inputId = thisrow$var, selected = selrange)
+                  try(shinyWidgets::updateCheckboxGroupButtons(session, inputId = thisrow$var, selected = selrange),silent = TRUE)
+                  try(shiny::updateCheckboxGroupInput(session, inputId = thisrow$var, selected = selrange),silent = TRUE)
                 },
                 "dateinput" = {
                   if (length(selrange) == 1) {

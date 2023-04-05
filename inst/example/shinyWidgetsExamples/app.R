@@ -6,7 +6,7 @@ ui <- fluidPage(initStore(),
   radioGroupButtons(
     inputId = "hook0",
     choices = c("A", "B", "C"),
-    label = "My label"
+    label = "shinyWidgets compatibility example"
   ),
 
   verbatimTextOutput(outputId = "res"),
