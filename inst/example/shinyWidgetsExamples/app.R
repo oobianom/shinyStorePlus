@@ -34,12 +34,12 @@ ui <- fluidPage(initStore(),
     label_off = "Unchecked..."
   ),
   checkboxGroupButtons( # or radioGroupButtons
-    inputId = "id",
+    inputId = "hook6",
     label = "Choice: ",
     choices = c("A", "B", "C")
   ),
   prettyCheckboxGroup( # or prettyRadioButtons
-    inputId = "id",
+    inputId = "hook7",
     label = "Choice",
     choices = c("A", "B", "c"),
     outline = TRUE,
@@ -48,7 +48,7 @@ ui <- fluidPage(initStore(),
     icon = icon("check")
   ),
   pickerInput(
-    inputId = "id",
+    inputId = "hook8",
     label = "Select:",
     choices = month.name,
     options = pickerOptions(
@@ -60,7 +60,7 @@ ui <- fluidPage(initStore(),
   ),
 
   virtualSelectInput(
-    inputId = "id",
+    inputId = "hook9",
     label = "Select:",
     choices = list(
       "Spring" = c("March", "April", "May"),
@@ -74,7 +74,7 @@ ui <- fluidPage(initStore(),
   ),
 
   airDatepickerInput(
-    inputId = "id",
+    inputId = "hook10",
     label = "Select:",
     placeholder = "Placeholder",
     multiple = 5,
@@ -82,7 +82,7 @@ ui <- fluidPage(initStore(),
   ),
 
   treeInput(
-    inputId = "ID2",
+    inputId = "hook11",
     label = "Select cities:",
     choices = create_tree(cities),
     returnValue = "text",
@@ -90,7 +90,7 @@ ui <- fluidPage(initStore(),
   ),
 
   searchInput(
-    inputId = "id",
+    inputId = "hook12",
     label = "Enter your search :",
     placeholder = "This is a placeholder",
     btnSearch = icon("search"),
