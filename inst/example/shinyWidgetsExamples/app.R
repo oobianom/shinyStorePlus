@@ -4,7 +4,7 @@ library(shinyStorePlus)
 
 ui <- fluidPage(initStore(),
   radioGroupButtons(
-    inputId = "somevalue",
+    inputId = "hook0",
     choices = c("A", "B", "C"),
     label = "My label"
   ),
@@ -79,15 +79,6 @@ ui <- fluidPage(initStore(),
     placeholder = "Placeholder",
     multiple = 5,
     clearButton = TRUE
-  ),
-
-  searchInput(
-    inputId = "hook12",
-    label = "Enter your search :",
-    placeholder = "This is a placeholder",
-    btnSearch = icon("search"),
-    btnReset = icon("remove"),
-    width = "100%"
   )
 
 
@@ -96,14 +87,14 @@ ui <- fluidPage(initStore(),
 server <- function(input, output, session) {
 
   output$res <- renderPrint({
-    input$somevalue
+    input$hook0
   })
 
   observeEvent(input$updatechoices, {
     newchoices <- sample(letters, sample(3:7))
     updateRadioGroupButtons(
       session = session,
-      inputId = "somevalue",
+      inputId = "hook0",
       choices = newchoices
     )
     updatePickerInput(
@@ -115,14 +106,14 @@ server <- function(input, output, session) {
 
   observeEvent(input$updateselected, {
     updateRadioGroupButtons(
-      session = session, inputId = "somevalue",
+      session = session, inputId = "hook0",
       selected = input$updateselected
     )
   }, ignoreNULL = TRUE, ignoreInit = TRUE)
 
   observeEvent(input$updatelabel, {
     updateRadioGroupButtons(
-      session = session, inputId = "somevalue",
+      session = session, inputId = "hook0",
       label = input$updatelabel
     )
   }, ignoreInit = TRUE)
