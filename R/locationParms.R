@@ -26,11 +26,10 @@
 #' @export
 #'
 
-link2input <- function(..., inputtype = "default") {
+link2input <- function(..., inputtype = "default", session = getDefaultReactiveDomain()) {
   envir <- parent.frame()
   input <- envir$input
   output <- envir$output
-  session <- envir$session
 
   elm <- list(...)
 
