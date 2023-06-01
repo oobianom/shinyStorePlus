@@ -4,6 +4,7 @@
 #'
 #' @param ... List of Shiny input IDs to match with window location parameters
 #' @param inputtype Type of inputs being included
+#' @param session Shiny session object
 #'
 #' @note a great example of how to use this functionality can be found in https://cran.r-project.org/web/packages/shinyStorePlus/vignettes/shinystoreplus_v08.html
 #' @return Setting of the Shiny inputs to the values of the parameters in the browser link
