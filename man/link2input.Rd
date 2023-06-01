@@ -4,12 +4,14 @@
 \alias{link2input}
 \title{Convert Browser Location Parameters to Shiny Input and Output Values}
 \usage{
-link2input(..., inputtype = "default")
+link2input(..., inputtype = "default", session = getDefaultReactiveDomain())
 }
 \arguments{
 \item{...}{List of Shiny input IDs to match with window location parameters}
 
 \item{inputtype}{Type of inputs being included}
+
+\item{session}{Shiny session object}
 }
 \value{
 Setting of the Shiny inputs to the values of the parameters in the browser link
