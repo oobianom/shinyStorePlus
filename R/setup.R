@@ -190,7 +190,9 @@ setupStorage <- function(appId, inputs = TRUE, outputs = FALSE, session = getDef
                   try(shiny::updateRadioButtons(session, inputId = thisrow$var, selected = thisrow$value), silent = TRUE)
                 },
                 {
-                  shiny::updateTextInput(session, inputId = thisrow$var, value = selrange)
+                  inputId = thisrow$var
+                  message <- rmNULL(list(label=NULL, value=selrange, placeholder=NULL))
+                  session$sendInputMessage(inputId, message)
                 }
               )
             }
@@ -207,3 +209,4 @@ setupStorage <- function(appId, inputs = TRUE, outputs = FALSE, session = getDef
     }
   })
 }
+
