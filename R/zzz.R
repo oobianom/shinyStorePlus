@@ -10,7 +10,7 @@ utils::globalVariables(c("updateSelectInput", "updateCheckboxGroupInput", "updat
 
 
 
-# Given a vector or list, drop all the NULL items in it
-dropNulls <- function(x) {
+# drop all the NULL items, adapted from shiny pkg
+rmNULL <- function(x) {
   x[!vapply(x, is.null, FUN.VALUE=logical(1))]
 }
