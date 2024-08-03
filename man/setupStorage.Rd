@@ -8,7 +8,8 @@ setupStorage(
   appId,
   inputs = TRUE,
   outputs = FALSE,
-  session = getDefaultReactiveDomain()
+  session = getDefaultReactiveDomain(),
+  dyn.inputs = list()
 )
 }
 \arguments{
@@ -19,6 +20,8 @@ setupStorage(
 \item{outputs}{choose whether to track all outputs or specific output variables}
 
 \item{session}{current session to track}
+
+\item{dyn.inputs}{dynamic inputs; inputs that get added to the app from the server function}
 }
 \value{
 Embed within a page storage that allows input changes to be saved without slowing down the shiny application
