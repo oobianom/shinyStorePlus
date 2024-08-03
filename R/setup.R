@@ -4,6 +4,7 @@
 #'
 #' @param appId your desired application id
 #' @param inputs choose whether to track all inputs or specific input variables
+#' @param dyn.inputs dynamic inputs; inputs that get added to the app from the server function
 #' @param outputs choose whether to track all outputs or specific output variables
 #' @param session current session to track
 #'
@@ -133,7 +134,7 @@
 #' @export
 #'
 
-setupStorage <- function(appId, inputs = TRUE, outputs = FALSE, session = getDefaultReactiveDomain()) {
+setupStorage <- function(appId, inputs = TRUE, outputs = FALSE, session = getDefaultReactiveDomain(), dyn.inputs = list()) {
   envir <- parent.frame()
   input <- envir$input
   output <- envir$output
@@ -141,7 +142,8 @@ setupStorage <- function(appId, inputs = TRUE, outputs = FALSE, session = getDef
   result <- (list(
     appname = appId,
     input = inputs,
-    output = outputs
+    output = outputs,
+    dinput = dyn.inputs
   ))
   session$sendCustomMessage(
     "retriever",
