@@ -1,0 +1,76 @@
+---
+title: "As of v1.2, Storing Input Values from Dynamically Generated Inputs"
+author: "Obinna N. Obianom"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{As of v1.2, Storing Input Values from Dynamically Generated Inputs}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Introduction
+
+Storing input values from dynamically generated inputs is crucial in R-based applications, especially when dealing with complex, interactive data analysis and visualization tools. This functionality allows for the preservation of user settings and preferences, enabling a seamless user experience by maintaining state across sessions. For instance, when users adjust parameters through dynamically generated inputs, such as sliders or text fields, these values can be saved and reloaded later, saving time and effort in reconfiguration. This is particularly useful in collaborative environments, where different users might need to reproduce specific analysis conditions. Furthermore, storing input values enhances the reproducibility and consistency of analyses, ensuring that results can be replicated precisely. In R-based apps, this capability is typically achieved through reactive programming frameworks like Shiny, which allow developers to capture, store, and restore input values efficiently. Overall, this feature significantly boosts the usability and robustness of R-based applications by facilitating user convenience and promoting reliable, repeatable data analysis workflows.
+
+## New Revision
+
+In previous versions of shinyStorePlus, users could store input values only when the specific inputs were instantiated using the UI function in Shiny apps. Inputs declared in the server function, which might be added to the container based on a button click or other triggers, could not be tracked by shinyStorePlus. _This limitation has now been resolved_. Regardless of where the input is declared, whether in the UI or server function, shinyStorePlus will track and store it effectively.
+
+
+
+## Example of storing UI coded or server dynamically generated inputs
+
+
+
+```
+
+library(shiny)
+library(shinyStorePlus)
+
+ui <- fluidPage(
+  initStore(),
+  titlePanel("On storing dynamically generated inputs"),
+  selectInput("sel_not0", "Color (should not be stored):", choices = c("","brown", "green", "blue", "red", "yellow", "cyan"), selected = ""),
+  selectInput("sel_color", "Color (should be stored):", choices = c("", "green", "blue", "red", "yellow", "cyan"), selected = ""),
+  uiOutput("ui_moreinputs"),
+  uiOutput("ui_moreinputs2"),
+  actionButton("buton1","Click me to show another select"),
+  uiOutput("ui_moreinputs3"),
+  uiOutput("ui_moreinputs4"),
+  p("Refresh the page - the value of the hard coded input is retained, but the dynamic one is not")
+)
+
+server <- function(input, output, session) {
+  observe({
+    output$ui_moreinputs <- renderUI(
+      selectInput("sel_month", "Month (dynamically generated - should be stored):", choices = c("", month.name), selected = "")
+    )
+
+    output$ui_moreinputs2 <- renderUI(
+      selectInput("sel_not1", "Month (dynamically generated - should Not stored):", choices = c("", month.name), selected = "")
+    )
+  })
+
+  observeEvent(input$buton1,{
+    output$ui_moreinputs3 <- renderUI(
+      selectInput("sel_month2", "Month (dynamically generated - should be stored):", choices = c("", month.name), selected = "")
+    )
+
+    output$ui_moreinputs4 <- renderUI(
+      selectInput("sel_not2", "Month (dynamically generated - should be NOT stored):", choices = c("", month.name), selected = "")
+    )
+  })
+
+  setupStorage(appId = "shinytest12", inputs = list("sel_color"), dyn.inputs = list("sel_month","sel_month2"), session = session)
+}
+
+shinyApp(ui = ui, server = server, options = list(launch.browser = TRUE))
+
+```
