@@ -2,6 +2,8 @@
 --------------------------------------------------------------------------
 ## Planned Features
 
+- [ ] Store app views across all visitors
+- [ ] Store app likes from all visitors
 - [ ] Store outputs for DT and rhandsontable tables automatically
 - [ ] Store specific variables
 - [ ] Retrieve all stored specific variables & outputs
