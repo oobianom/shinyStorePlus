@@ -7,6 +7,8 @@
 #' @param dyn.inputs dynamic inputs; inputs that get added to the app from the server function
 #' @param outputs choose whether to track all outputs or specific output variables
 #' @param session current session to track
+#' @details
+#' As of version 1.2, the user may be able to store dynamically generated inputs \cr
 #'
 #' @note the inputs argument may be a \code{TRUE} or \code{FALSE} or a list of input ids. More examples are located at https://github.com/oobianom/aagarw30_shinyapps_to-shinyStorePlus
 #' @return Embed within a page storage that allows input changes to be saved without slowing down the shiny application
