@@ -8,7 +8,7 @@
 
 # shinyStorePlus 1.2
 --------------------------------------------------------------------------
-## Planned Features
+## Features
 
 - [x] Store dynamically generated inputs, like inputs created from the server function of the shiny app. See examples in the GitHub project link
 
@@ -17,8 +17,6 @@
 ## Features
 
 - [x] Compatibility for shinyWidgets package
-
-
 
 # shinyStorePlus 0.9
 --------------------------------------------------------------------------
