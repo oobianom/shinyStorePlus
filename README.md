@@ -2,6 +2,8 @@
 
 ### TWO MAIN FEATURES: (1) In-browser storage for Shiny persistent, synchronized data from the inputs using IndexedDB. (2) Transfer browser link parameters to Shiny input or output values.
 
+Note: As of version 1.2, shinyStorePlus now stores inputs dynamically generated within the server function.
+
 ---------------------------------------------------------------------------------------
 
 ### Official docs link: [https://shinystoreplus.obi.obianom.com](https://shinystoreplus.obi.obianom.com)
