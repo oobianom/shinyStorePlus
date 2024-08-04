@@ -131,6 +131,41 @@
 #'   }
 #'   shiny::shinyApp(ui = ui, server = server)
 #' }
+#'
+#' # example 3 with dynamically generated inputs
+#' if(interactive()){
+#'   library(shiny)
+#'   library(shinyStorePlus)
+#'   ui <- shiny::fluidPage(
+#'     titlePanel("Select option,
+#'                then referesh page."),
+#'     initStore(),
+#'     selectInput("sel_color",
+#'                 "Color (hardcoded input):",
+#'                 choices = c("", "green", "blue",
+#'                             "red", "yellow",
+#'                             "cyan"), selected = ""),
+#'     uiOutput("ui_moreinputs")
+#'   )
+#'
+#'   server <- function(input, output, session) {
+#'     observe({
+#'       output$ui_moreinputs <- renderUI(
+#'         selectInput("sel_month",
+#'                     "Month (dynamically generated):",
+#'                     choices = c("", month.name),
+#'                     selected = "")
+#'       )
+#'     })
+#'
+#'     setupStorage(appId = "dynamic02",
+#'                  inputs = list("sel_color"),
+#'                  dyn.inputs = list("sel_month"),
+#'                  session = session)
+#'   }
+#'
+#'   shinyApp(ui = ui, server = server)
+#' })
 #' }
 #'
 #' @export
