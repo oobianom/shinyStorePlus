@@ -1,2 +1,4 @@
+^_pkgdown\.yml$
 ^.*\.Rproj$
+^.*\.future
 ^\.Rproj\.user$
