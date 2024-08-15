@@ -176,12 +176,12 @@ setupStorage <- function(appId, inputs = TRUE, outputs = FALSE, session = getDef
   input <- envir$input
   output <- envir$output
   # setup input stores
-  result <- (list(
+  result <- list(
     appname = appId,
     input = inputs,
     output = outputs,
     dinput = dyn.inputs
-  ))
+  )
   session$sendCustomMessage(
     "retriever",
     result
