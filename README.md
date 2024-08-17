@@ -10,7 +10,6 @@ Note: As of version 1.2, shinyStorePlus now stores inputs dynamically generated 
 
 ### Demo 1: [View Demo Shiny  App](https://r2apps.shinyapps.io/shinystoreplus)
 ### Demo 2: [View Demo Shiny  App](https://r2apps.shinyapps.io/browserLinkToInput?data=pressure&name=obinna&num=50&outt=wowowow)
-### Demo 3 ~ 20: [View Demo Shiny App gallery](http://66pharm.com:3838/portfolio/shinyStorePlus)
 
 ### Transformation of various shiny apps with the shinyStorePlus package: https://github.com/oobianom/aagarw30_shinyapps_to-shinyStorePlus
 
