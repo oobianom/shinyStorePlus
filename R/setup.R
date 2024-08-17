@@ -134,8 +134,6 @@
 #'
 #' # example 3 with dynamically generated inputs
 #' if(interactive()){
-#'   library(shiny)
-#'   library(shinyStorePlus)
 #'   ui <- shiny::fluidPage(
 #'     titlePanel("Select option,
 #'                then referesh page."),
@@ -165,7 +163,6 @@
 #'   }
 #'
 #'   shinyApp(ui = ui, server = server)
-#' })
 #' }
 #'
 #' @export
