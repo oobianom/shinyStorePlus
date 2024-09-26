@@ -73,7 +73,7 @@ shinyApp(ui = ui, server = server)
 
 The shinyStorePlus package is available on CRAN and can be installed as shown below
 
-`install.packages(shinyStorePlus)`
+`install.packages("shinyStorePlus")`
 
 Attach library 
 
