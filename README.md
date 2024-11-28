@@ -8,8 +8,8 @@ Note: As of version 1.2, shinyStorePlus now stores inputs dynamically generated 
 
 ### Official docs link: [https://shinystoreplus.obi.obianom.com](https://shinystoreplus.obi.obianom.com)
 
-### Demo 1: [View Demo Shiny  App](https://r2apps.shinyapps.io/shinystoreplus)
-### Demo 2: [View Demo Shiny  App](https://r2apps.shinyapps.io/browserLinkToInput?data=pressure&name=obinna&num=50&outt=wowowow)
+### Demo 1: https://r2apps.shinyapps.io/shinystoreplus/
+### Demo 2: https://r2apps.shinyapps.io/browserLinkToInput/?data=pressure&name=obinna&num=50&outt=wowowow
 
 ### Transformation of various shiny apps with the shinyStorePlus package: https://github.com/oobianom/aagarw30_shinyapps_to-shinyStorePlus
 
