@@ -1,12 +1,18 @@
-# shinyStorePlus 1.3
+# shinyStorePlus 1.4
 --------------------------------------------------------------------------
 ## Planned Features
 
-- [ ] Store app views across all visitors
-- [ ] Store app likes from all visitors
 - [ ] Store outputs for DT and rhandsontable tables automatically
 - [ ] Store specific variables
 - [ ] Retrieve all stored specific variables & outputs
+
+# shinyStorePlus 1.3
+--------------------------------------------------------------------------
+## Features
+
+- [x] Store app views across all visitors
+- [x] Store app likes from visitors
+- [x] Store app followers
 
 # shinyStorePlus 1.2
 --------------------------------------------------------------------------
