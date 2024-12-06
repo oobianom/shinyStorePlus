@@ -11,10 +11,10 @@ setupRPKG(
   likesID = NULL,
   followID = NULL,
   session = getDefaultReactiveDomain(),
-  icon.follow = icon("user-plus"),
-  icon.unfollow = icon("user-plus"),
-  icon.like = icon("heart"),
-  icon.unlike = icon("heart", class = "fa-solid"),
+  icon.follow = shiny::icon("user"),
+  icon.unfollow = shiny::icon("user", class = "fa-solid"),
+  icon.like = shiny::icon("heart"),
+  icon.unlike = shiny::icon("heart", class = "fa-solid"),
   text.follow = "",
   text.unfollow = "",
   text.like = "",
@@ -58,15 +58,50 @@ lfButton(inputId, width = NULL, suffix = "", ...)
 
 \item{suffix}{suffix to add to likes or followers count}
 
-\item{label}{The contents of the button or link–usually a text label, but you could also use any other HTML, like an image.}
-
 \item{icon}{Optional. A shiny::icon() to appear on the button.}
 }
 \description{
-To unlock this functionality, you'll need to obtain a FREE API key from https://api.rpkg.net \CR
+To unlock this functionality, you'll need to obtain a FREE API key from https://api.rpkg.net \cr
 However, before requesting your API key, it's recommended to do an initial deployment of your app.
 This is because the API key generation process requires you to provide the link to your Shiny app.
 }
 \details{
 Utilize the rpkg.net API to store and retrieve page views, likes and followers
+}
+\examples{
+\donttest{
+library(shiny)
+library(shinyStorePlus)
+
+if (interactive()) {
+
+# replace UI with more elements
+ui <- fluidPage(
+  initStore("rpkg",rpkg.api.key =
+  "c20c5eead7714c119dd3f20bd249a388e72db2aa0f9305d0380b683a37c5296a")
+)
+
+# this example is focused on the server
+server <- function(input, output, session) {
+  setupRPKG(
+    session = session,
+    viewsID = "viewsshow",
+    likesID = "liket",
+    followID = "followt",
+    icon.follow = shiny::icon("user-plus"),
+    icon.unfollow = shiny::icon("user-minus"),
+    icon.like = shiny::icon("thumbs-up"),
+    icon.unlike = shiny::icon("thumbs-down"),
+    text.follow = "Follow us!",
+    text.unfollow = "Unfollow us!",
+    text.like = "Like us!",
+    text.unlike = "Unlike us!"
+ )
+}
+
+
+shinyApp(ui = ui, server = server)
+}
+}
+
 }
