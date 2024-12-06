@@ -1,7 +1,12 @@
 # shinyStorePlus R package <img src="https://shinystoreplus.obi.obianom.com/hex-shinyStorePlus.png" align="right" width="200">
 
-### TWO MAIN FEATURES: (1) In-browser storage for Shiny persistent, synchronized data from the inputs using IndexedDB. (2) Transfer browser link parameters to Shiny input or output values.
+### THREE MAIN FEATURES: 
 
+ - [ ] In-browser storage for Shiny persistent, synchronized data from the inputs using IndexedDB. 
+ - [ ] Transfer browser link parameters to Shiny input or output values.
+ - [ ] _Store app visitor views, likes and followers !NEW_
+
+Note: As of version 1.3, shinyStorePlus now allows storage of visitor views, likes and followers
 Note: As of version 1.2, shinyStorePlus now stores inputs dynamically generated within the server function.
 
 ---------------------------------------------------------------------------------------
@@ -10,6 +15,7 @@ Note: As of version 1.2, shinyStorePlus now stores inputs dynamically generated 
 
 ### Demo 1: https://r2apps.shinyapps.io/shinystoreplus/
 ### Demo 2: https://r2apps.shinyapps.io/browserLinkToInput/?data=pressure&name=obinna&num=50&outt=wowowow
+### Demo 3: https://rpkg.shinyapps.io/shiny-app-views-likes-followers/
 
 ### Transformation of various shiny apps with the shinyStorePlus package: https://github.com/oobianom/aagarw30_shinyapps_to-shinyStorePlus
 
