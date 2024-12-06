@@ -15,7 +15,7 @@ initStore(src = c("browser", "rpkg", "all"), rpkg.api.key)
 Initialize the storage by including scripts necessary for the persistent storage handling
 }
 \description{
-To unlock the "rpkg" or "all" functionality, you'll need to obtain a FREE API key from https://api.rpkg.net \CR
+To unlock the "rpkg" or "all" functionality, you'll need to obtain a FREE API key from https://api.rpkg.net \cr
 However, before requesting your API key, it's recommended to do an initial deployment of your app.
 This is because the API key generation process requires you to provide the link to your Shiny app.
 }
@@ -80,6 +80,44 @@ if (interactive()) {
   }
   shiny::shinyApp(ui = ui, server = server)
 }
+
+
+# Example app that stores App user views, likes and followers
+
+library(shiny)
+library(shinyStorePlus)
+
+if (interactive()) {
+ui <- fluidPage(
+  titlePanel("Simplified shiny app storage of views, likes and followers"),
+  initStore("all",rpkg.api.key =
+  "c20c5eead7714c119dd3f20bd249a388e72db2aa0f9305d0380b683a37c5296a"),
+  h2("Save App Views"),hr(),
+  viewsBox("viewsshow","loading views..."),
+  h2("Save App Likes, and allow user to Like!"),hr(),
+  lfButton("liket",suffix="likes"),
+  h2("Save App Followers, and allow user to Follow!"),hr(),
+  lfButton("followt",suffix="followers"),
+  hr(),p(p("Like or Follow and Refresh the page -
+  the values are saved and the views are incremented."))
+)
+
+server <- function(input, output, session) {
+  # set up views, likes and follows, leave as
+  # NULL if you don't need tracking for either
+  # in this case, we leave followID as NULL
+  # since we don't need to use that
+  setupRPKG(
+    viewsID = "viewsshow",
+    likesID = "liket",
+    followID = "followt"
+ )
+}
+
+
+shinyApp(ui = ui, server = server)
+}
+
 }
 
 }
