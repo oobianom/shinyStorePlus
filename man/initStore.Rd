@@ -4,13 +4,29 @@
 \alias{initStore}
 \title{Included package scripts}
 \usage{
-initStore()
+initStore(src = c("browser", "rpkg", "all"), rpkg.api.key)
+}
+\arguments{
+\item{src}{scripts to include}
+
+\item{rpkg.api.key}{API key obtained from rpkg.net to use if src = "rpkg" or "all"}
 }
 \value{
 Initialize the storage by including scripts necessary for the persistent storage handling
 }
 \description{
+To unlock the "rpkg" or "all" functionality, you'll need to obtain a FREE API key from https://api.rpkg.net \CR
+However, before requesting your API key, it's recommended to do an initial deployment of your app.
+This is because the API key generation process requires you to provide the link to your Shiny app.
+}
+\details{
 Include Dexie and the package script in the header
+}
+\note{
+Choices for "src":\cr\cr
+"browser" - include only scripts relevant for storing data within browser\cr\cr
+"rpkg" - include scripts relevant for storing app views, likes and followers in rpkg.net\cr\cr
+"all" - include all scripts\cr
 }
 \examples{
 \donttest{

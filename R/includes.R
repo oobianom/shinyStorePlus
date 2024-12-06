@@ -3,6 +3,19 @@
 #' Include Dexie and the package script in the header
 #'
 #' @return Initialize the storage by including scripts necessary for the persistent storage handling
+#' @param src scripts to include
+#' @param rpkg.api.key API key obtained from rpkg.net to use if src = "rpkg" or "all"
+#' @note
+#' Choices for "src":\cr\cr
+#' "browser" - include only scripts relevant for storing data within browser\cr\cr
+#' "rpkg" - include scripts relevant for storing app views, likes and followers in rpkg.net\cr\cr
+#' "all" - include all scripts\cr
+#'
+#' @description
+#' To unlock the "rpkg" or "all" functionality, you'll need to obtain a FREE API key from https://api.rpkg.net \CR
+#' However, before requesting your API key, it's recommended to do an initial deployment of your app.
+#' This is because the API key generation process requires you to provide the link to your Shiny app.
+#'
 #' @examples
 #' \donttest{
 #' library(shiny)
@@ -60,14 +73,39 @@
 #' @export
 #'
 
-initStore <- function() {
+initStore <- function(src = c("browser","rpkg","all"), rpkg.api.key) {
+  src = match.arg(src)
+  if(src %in% c("rpkg","all") & missing(rpkg.api.key)){
+    stop("In order to use the rpkg API, you need to obtain a FREE API key from https://api.rpkg.net")
+  }
+  switch (src,
+          "browser" = initBRStore(),
+          "rpkg" = initRPKGStore(API = rpkg.api.key),
+          "all" = list(initBRStore(),initRPKGStore(API = rpkg.api.key))
+  )
+}
+
+
+
+initBRStore <- function() {
   ssp <- "shinyStorePlus"
   vs <- "1.1"
-  template.loc1 <- file.path(find.package(package = ssp), "scripts")
+  template.loc1 <- file.path(find.package(package = .packageName), "scripts")
   htmltools::htmlDependency(
     ssp, vs,
     src = template.loc1,
     script = c("dexie.js", paste0(tolower(ssp), ".js")),
+    all_files = FALSE
+  )
+}
+
+
+initRPKGStore <- function(API) {
+  template.loc1 <- file.path(find.package(package = .packageName), "scripts")
+  htmltools::htmlDependency(
+    "rpkg", "0.1",
+    src = template.loc1,
+    script = list(src = "rpkg.js", identifier=API, id="rpkgapiscript"),
     all_files = FALSE
   )
 }
