@@ -4,7 +4,7 @@
 
  - [x] In-browser storage for Shiny persistent, synchronized data from the inputs using IndexedDB. 
  - [x] Transfer browser link parameters to Shiny input or output values.
- - [ ] _+Store shiny app visitor views, likes and followers !NEW_+
+ - [x] __Store shiny app visitor views, likes and followers !NEW__
 
 Note: As of version 1.3, shinyStorePlus now allows storage of visitor views, likes and followers
 
