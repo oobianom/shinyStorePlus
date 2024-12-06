@@ -1,4 +1,5 @@
 ^_pkgdown\.yml$
+^rpkgraw\.js$
 ^.*\.Rproj$
 ^.*\.future
 ^\.Rproj\.user$
