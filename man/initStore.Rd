@@ -15,12 +15,12 @@ initStore(src = c("browser", "rpkg", "all"), rpkg.api.key)
 Initialize the storage by including scripts necessary for the persistent storage handling
 }
 \description{
+Include Dexie and the package script in the header
+}
+\details{
 To unlock the "rpkg" or "all" functionality, you'll need to obtain a FREE API key from https://api.rpkg.net \cr
 However, before requesting your API key, it's recommended to do an initial deployment of your app.
 This is because the API key generation process requires you to provide the link to your Shiny app.
-}
-\details{
-Include Dexie and the package script in the header
 }
 \note{
 Choices for "src":\cr\cr
