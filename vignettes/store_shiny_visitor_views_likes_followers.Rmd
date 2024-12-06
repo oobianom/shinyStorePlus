@@ -1,10 +1,10 @@
 ---
-title: "Store shiny app visitor views, likes and followers using shinyStorePlus 1.3"
+title: "NEW: Store shiny app visitor views, likes and followers using shinyStorePlus 1.3"
 author: "Obinna N. Obianom"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Store shiny app visitor views, likes and followers using shinyStorePlus 1.3}
+  %\VignetteIndexEntry{NEW: Store shiny app visitor views, likes and followers using shinyStorePlus 1.3}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
