@@ -7,7 +7,6 @@
 #' @param followID Optional. The button ID to display followers
 #' @param session Optional. Current session to track
 #' @param inputId The input slot that will be used to access the value.
-#' @param label The contents of the button or link–usually a text label, but you could also use any other HTML, like an image.
 #' @param icon.follow Optional. shiny::icon() to activate follow
 #' @param icon.unfollow Optional. shiny::icon() to de-activate follow
 #' @param icon.like Optional. shiny::icon() to activate likes
@@ -21,6 +20,41 @@
 #' @param suffix suffix to add to likes or followers count
 #' @param ... Optional. Named attributes to be applied to the likes or follows button or views box.
 #' @rdname rpkgapi
+#' @examples
+#' \donttest{
+#' library(shiny)
+#' library(shinyStorePlus)
+#'
+#' if (interactive()) {
+#'
+#' # replace UI with more elements
+#' ui <- fluidPage(
+#'   initStore("rpkg",rpkg.api.key =
+#'   "c20c5eead7714c119dd3f20bd249a388e72db2aa0f9305d0380b683a37c5296a")
+#' )
+#'
+#' # this example is focused on the server
+#' server <- function(input, output, session) {
+#'   setupRPKG(
+#'     session = session,
+#'     viewsID = "viewsshow",
+#'     likesID = "liket",
+#'     followID = "followt",
+#'     icon.follow = shiny::icon("user-plus"),
+#'     icon.unfollow = shiny::icon("user-minus"),
+#'     icon.like = shiny::icon("thumbs-up"),
+#'     icon.unlike = shiny::icon("thumbs-down"),
+#'     text.follow = "Follow us!",
+#'     text.unfollow = "Unfollow us!",
+#'     text.like = "Like us!",
+#'     text.unlike = "Unlike us!"
+#'  )
+#' }
+#'
+#'
+#' shinyApp(ui = ui, server = server)
+#' }
+#' }
 #'
 #' @description
 #' To unlock this functionality, you'll need to obtain a FREE API key from https://api.rpkg.net \cr
@@ -85,7 +119,10 @@ viewsBox<- function(inputId,...){
 
 #' @rdname rpkgapi
 #' @export
-lfButton<- function(inputId, width = NULL, suffix = "", ...){
+lfButton <- function(inputId,
+                     width = NULL,
+                     suffix = "",
+                     ...) {
   shiny::tags$span(
     shiny::actionButton(
     inputId =  inputId, label = "", icon = shiny::icon("circle-dot",class = "fa-solid"), width = width, class="shinysplfbtn", style="pading:3px; border-radius:5px", ...
