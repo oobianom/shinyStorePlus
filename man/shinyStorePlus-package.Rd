@@ -4,9 +4,9 @@
 \name{shinyStorePlus-package}
 \alias{shinyStorePlus}
 \alias{shinyStorePlus-package}
-\title{shinyStorePlus: Secure in-Browser Storage for 'Shiny' Inputs, Outputs and Variables}
+\title{shinyStorePlus: Secure in-Browser and Database Storage for 'shiny' Inputs, Outputs, Views and User Likes}
 \description{
-Store persistent and synchronized data from 'Shiny' inputs within the browser in a secure format. Refresh 'Shiny' applications and preserve user-inputs over multiple sessions. A database-like storage format is implemented using 'Dexie.js' \url{https://dexie.org}, a minimal wrapper for 'IndexedDB'. Transfer browser link parameters to 'Shiny' input or output values.
+Store persistent and synchronized data from 'shiny' inputs within the browser. Refresh 'shiny' applications and preserve user-inputs over multiple sessions. A database-like storage format is implemented using 'Dexie.js' \url{https://dexie.org}, a minimal wrapper for 'IndexedDB'. Transfer browser link parameters to 'shiny' input or output values. Store app visitor views, likes and followers.
 }
 \seealso{
 Useful links:
