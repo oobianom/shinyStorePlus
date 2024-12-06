@@ -23,7 +23,7 @@
 #' @rdname rpkgapi
 #'
 #' @description
-#' To unlock this functionality, you'll need to obtain a FREE API key from https://api.rpkg.net \CR
+#' To unlock this functionality, you'll need to obtain a FREE API key from https://api.rpkg.net \cr
 #' However, before requesting your API key, it's recommended to do an initial deployment of your app.
 #' This is because the API key generation process requires you to provide the link to your Shiny app.
 #'
@@ -33,10 +33,10 @@ setupRPKG <-
            likesID = NULL,
            followID = NULL,
            session = getDefaultReactiveDomain(),
-           icon.follow = icon("user-plus"),
-           icon.unfollow = icon("user-plus"),
-           icon.like = icon("heart"),
-           icon.unlike = icon("heart",class = "fa-solid"),
+           icon.follow = shiny::icon("user"),
+           icon.unfollow = shiny::icon("user",class = "fa-solid"),
+           icon.like = shiny::icon("heart"),
+           icon.unlike = shiny::icon("heart",class = "fa-solid"),
            text.follow = "",
            text.unfollow = "",
            text.like = "",
@@ -48,16 +48,16 @@ setupRPKG <-
   # input$totalviewstracker # retrieve views value
   shiny::observeEvent(input$feedliketracker,{
     if(input$feedliketracker$liked == TRUE)
-      updateActionButton(session,likesID, label = text.unlike, icon = icon.unlike)
+      shiny::updateActionButton(session,likesID, label = text.unlike, icon = icon.unlike)
     if(input$feedliketracker$liked == FALSE)
-      updateActionButton(session,likesID, label = text.like, icon = icon.like)
+      shiny::updateActionButton(session,likesID, label = text.like, icon = icon.like)
   })
 
   shiny::observeEvent(input$feedfollowtracker,{
     if(input$feedfollowtracker$followed == TRUE)
-      updateActionButton(session,followID, label=text.unfollow, icon = icon.unfollow)
+      shiny::updateActionButton(session,followID, label=text.unfollow, icon = icon.unfollow)
     if(input$feedfollowtracker$followed == FALSE)
-      updateActionButton(session,followID, label=text.follow, icon = icon.follow)
+      shiny::updateActionButton(session,followID, label=text.follow, icon = icon.follow)
   })
 
   session$sendCustomMessage(
@@ -75,7 +75,7 @@ setupRPKG <-
 #' @rdname rpkgapi
 #' @export
 viewsBox<- function(inputId,...){
-  tags$span(
+  shiny::tags$span(
     id = inputId,
     class = "shinyspviewsbox shiny-bound-input",
     style = "display:inline-block",
@@ -86,13 +86,13 @@ viewsBox<- function(inputId,...){
 #' @rdname rpkgapi
 #' @export
 lfButton<- function(inputId, width = NULL, suffix = "", ...){
-  tags$span(
-  actionButton(
-    inputId =  inputId, label = "", icon = icon("circle-dot",class = "fa-solid"), width = width, class="shinysplfbtn", style="pading:3px; border-radius:5px", ...
+  shiny::tags$span(
+    shiny::actionButton(
+    inputId =  inputId, label = "", icon = shiny::icon("circle-dot",class = "fa-solid"), width = width, class="shinysplfbtn", style="pading:3px; border-radius:5px", ...
   ),
-  tags$b(
-  tags$span(id = paste0(inputId,"-totalv2"), class="shinysplfbtn-totl", style="display:inline-block; padding:0 5px;"),
-  tags$span(id = paste0(inputId,"-totalv3"), class="shinysplfbtn-totl2", suffix)
+  shiny::tags$b(
+  shiny::tags$span(id = paste0(inputId,"-totalv2"), class="shinysplfbtn-totl", style="display:inline-block; padding:0 5px;"),
+  shiny::tags$span(id = paste0(inputId,"-totalv3"), class="shinysplfbtn-totl2", suffix)
   )
   )
 }
