@@ -11,7 +11,7 @@
 #' "rpkg" - include scripts relevant for storing app views, likes and followers in rpkg.net\cr\cr
 #' "all" - include all scripts\cr
 #'
-#' @description
+#' @details
 #' To unlock the "rpkg" or "all" functionality, you'll need to obtain a FREE API key from https://api.rpkg.net \cr
 #' However, before requesting your API key, it's recommended to do an initial deployment of your app.
 #' This is because the API key generation process requires you to provide the link to your Shiny app.
