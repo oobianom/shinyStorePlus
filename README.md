@@ -2,11 +2,12 @@
 
 ### THREE MAIN FEATURES: 
 
- - [ ] In-browser storage for Shiny persistent, synchronized data from the inputs using IndexedDB. 
- - [ ] Transfer browser link parameters to Shiny input or output values.
- - [ ] _Store app visitor views, likes and followers !NEW_
+ - [x] In-browser storage for Shiny persistent, synchronized data from the inputs using IndexedDB. 
+ - [x] Transfer browser link parameters to Shiny input or output values.
+ - [ ] _+Store shiny app visitor views, likes and followers !NEW_+
 
 Note: As of version 1.3, shinyStorePlus now allows storage of visitor views, likes and followers
+
 Note: As of version 1.2, shinyStorePlus now stores inputs dynamically generated within the server function.
 
 ---------------------------------------------------------------------------------------
