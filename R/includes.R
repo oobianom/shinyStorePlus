@@ -12,7 +12,7 @@
 #' "all" - include all scripts\cr
 #'
 #' @description
-#' To unlock the "rpkg" or "all" functionality, you'll need to obtain a FREE API key from https://api.rpkg.net \CR
+#' To unlock the "rpkg" or "all" functionality, you'll need to obtain a FREE API key from https://api.rpkg.net \cr
 #' However, before requesting your API key, it's recommended to do an initial deployment of your app.
 #' This is because the API key generation process requires you to provide the link to your Shiny app.
 #'
@@ -86,8 +86,8 @@
 #'   lfButton("liket",suffix="likes"),
 #'   h2("Save App Followers, and allow user to Follow!"),hr(),
 #'   lfButton("followt",suffix="followers"),
-#'   hr(),p(p(i("Like or Follow and Refresh the page -
-#'   the values are saved and the views are incremented.")))
+#'   hr(),p(p("Like or Follow and Refresh the page -
+#'   the values are saved and the views are incremented."))
 #' )
 #'
 #' server <- function(input, output, session) {
