@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-## The Importance of Visitor Data in Shiny Apps and the Corresponding Functionality that shinyStorePlus provides
+## The Importance of Visitor Data in Shiny Apps and the Corresponding Functionality that shinyStorePlus Provides
 
 **Understanding how users interact with your Shiny app is crucial for its success.** By tracking visitor views, visitor likes, and visitor followers, you gain valuable insights into user engagement and preferences. This data allows you to:
 
@@ -29,7 +29,7 @@ knitr::opts_chunk$set(
 
 ### Demo app: https://rpkg.shinyapps.io/shiny-app-views-likes-followers/
 
-### Get started with R code
+## Example of storing View, User likes and followers
 
 ```
 library(shiny)
