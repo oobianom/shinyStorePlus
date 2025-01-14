@@ -3,9 +3,15 @@
 \name{observeOnce}
 \alias{observeOnce}
 \alias{observeOnceRestart}
-\title{Observe event once across multiple sessions}
+\title{Observe event execution ONCE across multiple sessions}
 \usage{
-observeOnce(expression, session = getDefaultReactiveDomain(), input, output)
+observeOnce(
+  expression,
+  session = getDefaultReactiveDomain(),
+  input,
+  output,
+  priority = 1
+)
 
 observeOnceRestart(session = getDefaultReactiveDomain())
 }
@@ -15,6 +21,8 @@ observeOnceRestart(session = getDefaultReactiveDomain())
 \item{input}{the shiny server input}
 
 \item{output}{the shiny server output}
+
+\item{priority}{An integer or numeric that controls the priority with which this observer should be executed. A higher value means higher priority: an observer with a higher priority value will execute before all observers with lower priority values. Positive, negative, and zero values are allowed.}
 }
 \description{
 Observe event that only gets executed one across multiple shiny sessions
