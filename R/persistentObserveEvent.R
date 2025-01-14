@@ -16,30 +16,32 @@
 #' library(shinyStorePlus)
 #'
 #' if (interactive()) {
-#'
-#' shiny::shinyApp(ui = ui, server = server)
+#'   shiny::shinyApp(ui = ui, server = server)
 #' }
-#'
 #' }
 #'
 #' @export
 #' @rdname observeonce
 
 observeOnce <- function(expression, session = getDefaultReactiveDomain(), input, output, priority = 1) {
-    shiny::observe({
-      session$sendCustomMessage("shinystoreplusalreadyExecuted", "start")
+  session$sendCustomMessage("stpobserveEventsOnce", "start")
+  shiny::observe(
+    {
       print(input$shinystoreplusalreadyExecuted)
-      if (not.null(input$shinystoreplusalreadyExecuted)) {
-        if (input$shinystoreplusalreadyExecuted == FALSE)
+      if (!is.null(input$shinystoreplusalreadyExecuted)) {
+        if (input$shinystoreplusalreadyExecuted == FALSE) {
           expression
+        }
       }
-    }, priority = priority)
-  }
+    },
+    priority = priority
+  )
+}
 
 #' @export
 #' @rdname observeonce
 
-observeOnceRestart <- function(session = getDefaultReactiveDomain()){
+observeOnceRestart <- function(session = getDefaultReactiveDomain()) {
   return(
     session$sendCustomMessage("stpobserveEventsOnce", "restart")
   )
