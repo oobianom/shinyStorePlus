@@ -7,20 +7,7 @@ ui <- fluidPage(
 
   ),
   shiny::mainPanel(width=6,textOutput("slidexresres"),
-         "The current function in the 'Shiny' app
-         enables users to execute an expression once
-         across multiple sessions, ensuring that
-         certain actions or elements only appear
-         the first time a user interacts with the app.
-         For example, it could be used to display
-         a welcome modal or a cookie acceptance prompt
-         only during the user's first session. After
-         the initial interaction, these elements will
-         not appear again, even if the user refreshes
-         the app or closes and reopens it later. This
-         functionality helps streamline the user experience
-         by preventing repetitive prompts and maintaining a
-         clean interface for returning users.")
+         "sample text")
 )
 
 server <- function(input, output, session) {
@@ -38,7 +25,7 @@ server <- function(input, output, session) {
   }, input = input, output = output)
 
   # optional: clear the storage for the previous time it was executed
-  observeOnceRestart()
+  #observeOnceRestart()
 }
 
 
