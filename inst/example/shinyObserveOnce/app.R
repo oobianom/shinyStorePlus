@@ -29,7 +29,7 @@ server <- function(input, output, session) {
 }
 
 
-shinyApp(ui = ui, server = server, options = list(launch.browser = TRUE,shiny.port =7171))
+shinyApp(ui = ui, server = server)
 
 
 
