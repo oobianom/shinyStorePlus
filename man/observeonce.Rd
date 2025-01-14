@@ -16,6 +16,8 @@ observeOnce(
 observeOnceRestart(session = getDefaultReactiveDomain())
 }
 \arguments{
+\item{expression}{An expression (quoted or unquoted). Any return value will be ignored.}
+
 \item{session}{the shiny server session object passed to function. Default is getDefaultReactiveDomain()}
 
 \item{input}{the shiny server input}
@@ -37,17 +39,24 @@ library(shinyStorePlus)
 
 if (interactive()) {
  ui <- fluidPage(
-   titlePanel("A shiny app that shows welcome message only once accross multple sessions. Refresh and see it in action"),
+   titlePanel("A shiny app that shows welcome message only
+   once accross multple sessions. Refresh and
+   see it in action"),
    initStore("browser"),sidebarPanel(
-     sliderInput("slidex", label = "Sample slider", min = 1, max = 50, value = 30)
+     sliderInput("slidex", label = "Sample slider",
+     min = 1, max = 50, value = 30)
 
    ),
-   shiny::mainPanel(width=6,textOutput("slidexresres"),
-          "sample text")
+   shiny::mainPanel(width=6,tags$h1(textOutput("slidexresres")),
+          "This functionality helps streamline the user
+          experience by preventing repetitive prompts
+          and maintaining a clean interface for returning users.")
  )
 
  server <- function(input, output, session) {
-   # setup for in browser tracking
+   # the observe expression below will only
+   # excecute once in 30 days, regardless of
+   # if the user opens or refresh the shiny app many times
    observeOnce({
      output$slidexresres <- renderText(input$slidex)
      showModal(modalDialog(
