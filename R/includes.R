@@ -134,7 +134,7 @@ initBRStore <- function() {
   htmltools::htmlDependency(
     ssp, vs,
     src = template.loc1,
-    script = c("dexie.js", paste0(tolower(ssp), ".js")),
+    script = c("dexie.js", "misc.js", paste0(tolower(ssp), ".js")),
     all_files = FALSE
   )
 }

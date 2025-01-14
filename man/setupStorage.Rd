@@ -19,7 +19,7 @@ setupStorage(
 
 \item{outputs}{choose whether to track all outputs or specific output variables}
 
-\item{session}{current session to track}
+\item{session}{the session object passed to function. Default is getDefaultReactiveDomain()}
 
 \item{dyn.inputs}{dynamic inputs; inputs that get added to the app from the server function}
 }

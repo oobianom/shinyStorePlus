@@ -6,7 +6,7 @@
 #' @param inputs choose whether to track all inputs or specific input variables
 #' @param dyn.inputs dynamic inputs; inputs that get added to the app from the server function
 #' @param outputs choose whether to track all outputs or specific output variables
-#' @param session current session to track
+#' @param session the session object passed to function. Default is getDefaultReactiveDomain()
 #' @details
 #' As of version 1.2, the user may be able to store dynamically generated inputs \cr
 #'

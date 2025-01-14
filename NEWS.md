@@ -1,10 +1,8 @@
 # shinyStorePlus 1.4
 --------------------------------------------------------------------------
-## Planned Features
+##  Features
 
-- [ ] Store outputs for DT and rhandsontable tables automatically
-- [ ] Store specific variables
-- [ ] Retrieve all stored specific variables & outputs
+- [x] observe event execution ONCE across multiple section. This can be useful to display a welcome message to users only the first time they visit your app. Or a cookie acceptance panel shown once. The point is that, when the user refreshed the app or returns to the app later, the execution will no longer occur since it had been shown to the user previously.
 
 # shinyStorePlus 1.3
 --------------------------------------------------------------------------
