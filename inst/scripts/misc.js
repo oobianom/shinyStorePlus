@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                 if (storedData) {
                     Shiny.setInputValue("shinystoreplusalreadyExecuted", true)
                 } else {
+                  Shiny.setInputValue("shinystoreplusalreadyExecuted", false)
                     saveToIndexedDB(observeonce)
                 }
             } catch (error) {
