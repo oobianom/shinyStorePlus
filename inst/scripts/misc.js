@@ -25,18 +25,15 @@ async function cleanupOldEntries() {
 }
 
 // Using document ready // or shiny:connected
-document.addEventListener('DOMContentLoaded', async function() {
+$(document).on('shiny:connected', function(event) {
 
-
-    Shiny.addCustomMessageHandler("stpobserveEventsOnce", function(e) {
+    Shiny.addCustomMessageHandler("stpobserveEventsOnce",async function(e) {
+      console.log(e)
         if (e == "restart") clearIndexedDB(observeonce)
         if (e == "start") {
-
             try {
-
                 // First clean up old entries
                 await cleanupOldEntries();
-
 
                 // Get the most recent entry for observeonce
                 const storedData = await db.inputData
@@ -63,8 +60,6 @@ document.addEventListener('DOMContentLoaded', async function() {
 // Function to save input value to IndexedDB
 async function saveToIndexedDB(inputName) {
     try {
-
-
         // Store with inputname
         await db.inputData.add({
             inputname: inputName,
