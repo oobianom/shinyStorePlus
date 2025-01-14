@@ -27,7 +27,6 @@ observeOnce <- function(expression, session = getDefaultReactiveDomain(), input,
   session$sendCustomMessage("stpobserveEventsOnce", "start")
   shiny::observe(
     {
-      print(input$shinystoreplusalreadyExecuted)
       if (!is.null(input$shinystoreplusalreadyExecuted)) {
         if (input$shinystoreplusalreadyExecuted == FALSE) {
           expression
