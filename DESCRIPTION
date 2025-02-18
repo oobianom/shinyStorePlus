@@ -1,7 +1,7 @@
 Package: shinyStorePlus
 Type: Package
 Title: Secure in-Browser and Database Storage for 'shiny' Inputs, Outputs, Views and User Likes 
-Version: 1.4
+Version: 1.5
 Authors@R: c(
     person("Obinna", "Obianom", email = "idonshayo@gmail.com", role = c("aut", "cre")))
 Maintainer: Obinna Obianom <idonshayo@gmail.com>
