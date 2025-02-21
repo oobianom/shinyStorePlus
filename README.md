@@ -57,7 +57,7 @@ As of __version 0.8__ , you are also able to transfer the parameters in a browse
 ```{r shinyStorePlus}
 
 # From CRAN
-install.packages(shinyStorePlus)
+install.packages("shinyStorePlus")
 
 # OR from Github
 library(devtools)
