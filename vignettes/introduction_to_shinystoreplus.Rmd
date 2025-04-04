@@ -44,7 +44,7 @@ __This introduces the advantages that the shinyStorePlus, implemented using Dexi
 
 The shinyStorePlus package is available on CRAN and can be installed as shown below
 
-`install.packages(shinyStorePlus)`
+`install.packages("shinyStorePlus")`
 
 Attach library 
 
