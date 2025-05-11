@@ -38,7 +38,7 @@ server <- function(input, output, session) {
   # shinyStorePlus
   setupStorage(
     appId = "appdyn27",
-    inputs = FALSE,
+    inputs = TRUE,
     dyn.inputs = list("dynamicinput1", "*sampletext", "sampletext*"),
     session = session
   )
