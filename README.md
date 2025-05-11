@@ -7,9 +7,9 @@
  - [x] Execute shiny::observe once across multiple browser sessions e.g show welcome message only once to a user
  - [x] __Store shiny app visitor views, likes and followers using api.rpkg.net !NEW__
 
-Note: As of version 1.3, shinyStorePlus now allows storage of visitor views, likes and followers
+Note: As of version 1.4, shinyStorePlus now allows storage of visitor views, likes and followers
 
-Note: As of version 1.2, shinyStorePlus now stores inputs dynamically generated within the server function.
+Note: As of version 1.5, shinyStorePlus now use of "*" in the __dyn.inputs__ of setupStorage(). [check](inst/example/dynamicInput/app2.R)
 
 ---------------------------------------------------------------------------------------
 
