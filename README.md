@@ -76,7 +76,7 @@ install_github("oobianom/shinyStorePlus")
 
 ## Sample code
 
-```
+```{r}
 quickcode::clean(clearPkgs = TRUE) #clear all environment and previous loaded packages
 library(shiny)
 library(shinyStorePlus)
