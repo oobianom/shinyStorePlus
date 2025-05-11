@@ -80,6 +80,7 @@
 #'   titlePanel("Simplified shiny app storage of views, likes and followers"),
 #'   initStore("all",rpkg.api.key =
 #'   "c20c5eead7714c119dd3f20bd249a388e72db2aa0f9305d0380b683a37c5296a"),
+#'   # get API key from https://api.rpkg.net
 #'   h2("Save App Views"),hr(),
 #'   viewsBox("viewsshow","loading views..."),
 #'   h2("Save App Likes, and allow user to Like!"),hr(),
