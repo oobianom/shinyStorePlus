@@ -2,7 +2,7 @@
 --------------------------------------------------------------------------
 ##  Features
 
-- [x] update to the observeOnce function
+- [x] Update to setupStorage(), allowing the use of "*" to select dynamic IDs starting or ending with particular words. Example at /inst/example/dynamicInput/app2.R
 
 # shinyStorePlus 1.4
 --------------------------------------------------------------------------
