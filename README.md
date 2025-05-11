@@ -1,10 +1,11 @@
 # shinyStorePlus R package <img src="https://shinystoreplus.obi.obianom.com/hex-shinyStorePlus.png" align="right" width="200">
 
-### THREE MAIN FEATURES: 
+### FOUR MAIN FEATURES: 
 
  - [x] In-browser storage for Shiny persistent, synchronized data from the inputs using IndexedDB. 
  - [x] Transfer browser link parameters to Shiny input or output values.
- - [x] __Store shiny app visitor views, likes and followers !NEW__
+ - [x] Execute shiny::observe once across multiple browser sessions e.g show welcome message only once to a user
+ - [x] __Store shiny app visitor views, likes and followers using api.rpkg.net !NEW__
 
 Note: As of version 1.3, shinyStorePlus now allows storage of visitor views, likes and followers
 
