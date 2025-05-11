@@ -3,68 +3,45 @@ library(shinyStorePlus)
 
 ui <- fluidPage(
   initStore(),
-  tags$h1("Dynamic Input with '*'"),
+  titlePanel("Edit inputs and refresh..."),
+
+  tags$h1("Non-Dynamic Input with '*'"),
   selectInput("mnth", "Non-dynamic:", choices = c("", month.name), selected = ""),
 
-  tags$h2("Hard coded with id starting with txteee:"),
-  textInput( "txteee1", "Random one","A name" ),
-  textInput( "txteee2", "Random two" ),
-  textInput( "shutxteee", "Random three" ),
-  tags$h2(id="dynstart","Dynamically started with txteee:"),
-  tags$h2("User-entered (id starting with txteee*):"),
-  textInput(
-    "ID",
-    "OriginalTexttt"
-  ),
-  actionButton("add", "Add UI"),
-  tags$h2("User-entered (id ending with txteee*):"),
-  textInput(
-    "ID2",
-    "OriginalTexttt"
-  ),
-  actionButton("add2", "Add UI")
+  tags$h1(id="dyn1","Dynamic Input Selected By Full ID name"),
+  #dyamic input will appear here
+
+  tags$h1(id="dyn2","Dynamic Input Selected By 'sampletext*'"),
+  #dyamic input will appear here
+
+  tags$h1(id="dyn3","Dynamic Input Selected By '*sampletext'"),
+  #dyamic input will appear here
+
+
+  # this won't work because shinyStorePlus does not create the input for you
+  tags$h2("User created dynamic inputs"),
+  textInput("ID","Insert an ID"),
+  actionButton("add", "Add UI")
 )
 
 server <- function(input, output, session) {
-  observeEvent(input$add, {
-    insertUI(
-      selector = "#add",
-      where = "afterEnd",
-      ui = textInput(
-        paste0("txteee", input$ID),
-        input$ID
-      )
-    )
-  })
 
-  observeEvent(input$add2, {
-    insertUI(
-      selector = "#add2",
-      where = "afterEnd",
-      ui = textInput(
-        paste0("txteee", input$ID2),
-        input$ID2
-      )
-    )
-  })
+  observeEvent(input$add, { insertUI( selector = "#add", where = "afterEnd", ui = textInput(paste0("random", input$ID), input$ID) ) })
 
-  insertUI(
-    selector = "#dynstart",
-    where = "afterEnd",
-    ui = textInput(
-      paste0("txteeedancerr"),
-      "Id start with txteee","Okay"
-    )
+  insertUI( selector = "#dyn1", where = "afterEnd", ui = textInput("dynamicinput1", "Dynamic input with id dynamicinput1","Okay" ) )
+
+  for(n in letters[1:3])insertUI( selector = "#dyn2", where = "afterEnd", ui = textInput( paste0("sampletext",n), paste0("Dyn input with id sampletext",n),"Hi" ) )
+
+  for(n in letters[1:3])insertUI( selector = "#dyn3", where = "afterEnd", ui = textInput( paste0(n,"sampletext"), paste0("Dyn input with id ",n,"sampletext"),"Hi" ) )
+
+
+  # shinyStorePlus
+  setupStorage(
+    appId = "appdyn27",
+    inputs = FALSE,
+    dyn.inputs = list("dynamicinput1", "*sampletext", "sampletext*"),
+    session = session
   )
-  insertUI(
-    selector = "#dynstart",
-    where = "afterEnd",
-    ui = textInput(
-      paste0("appletxteee"),
-      "Id ending with txteee","None"
-    )
-  )
-setupStorage(appId = "appdyn23",inputs = FALSE, dyn.inputs = list("mnth","apple","txteee*"), session = session)
 
 }
 
