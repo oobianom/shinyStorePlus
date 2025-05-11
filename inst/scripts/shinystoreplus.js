@@ -1,4 +1,4 @@
-/*! shinyStorePlus v1.3 | (c) Written by Obi Obianom, www.obianom.com | all rights reserved
+/*! shinyStorePlus v1.5 | (c) Written by Obi Obianom, www.obianom.com | all rights reserved
 
 _      _                 _____  _                     _____   _
 | |    (_)               / ____|| |                   |  __ \ | |
