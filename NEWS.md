@@ -1,3 +1,9 @@
+# shinyStorePlus 1.6
+--------------------------------------------------------------------------
+##  Features
+
+- [x] Extend the functionality of "*" for dynamic inputs in order to allow detection of subtree additions
+
 # shinyStorePlus 1.5
 --------------------------------------------------------------------------
 ##  Features
